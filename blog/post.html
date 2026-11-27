@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cargando artículo | ZyrIsland Blog</title>
+    <meta name="theme-color" content="#cc1224">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -39,17 +43,25 @@
     <div id="reading-progress" class="reading-progress-bar"></div>
 
     <header class="post-hero">
-        <div class="post-hero-inner">
-            <a href="https://zyrisland.net/blog/" class="back-to-blogs"><i class="fas fa-arrow-left"></i> Volver a todos los blogs</a>
+        <div class="header-grid-overlay" aria-hidden="true"></div>
+        <canvas id="post-particles" class="header-particles" aria-hidden="true"></canvas>
+        <div class="header-radial-glow" aria-hidden="true"></div>
 
-            <div class="blog-meta-line" id="post-meta">
+        <div class="post-hero-inner">
+            <a href="https://zyrisland.net/blog/" class="back-to-blogs hero-anim" style="--hero-delay: 0.05s;">
+                <i class="fas fa-arrow-left"></i> Volver a todos los blogs
+            </a>
+
+            <div class="blog-meta-line hero-anim" id="post-meta" style="--hero-delay: 0.14s;">
                 <span>Cargando...</span>
             </div>
 
-            <h1 id="post-title">Cargando artículo...</h1>
-            <p class="post-lead" id="post-summary"></p>
+            <h1 id="post-title" class="hero-anim" style="--hero-delay: 0.24s;">Cargando artículo...</h1>
+            <p class="post-lead hero-anim" id="post-summary" style="--hero-delay: 0.34s;"></p>
 
-            <div class="post-author-bar">
+            <div class="post-tags-row hero-anim" id="post-tags" style="--hero-delay: 0.4s;"></div>
+
+            <div class="post-author-bar hero-anim" style="--hero-delay: 0.46s;">
                 <div class="author-full">
                     <img id="post-author-avatar" src="https://app.zyrisland.net/assets/icons/zyrakatv-ico.png" alt="Autor">
                     <div class="author-info">
@@ -58,23 +70,38 @@
                     </div>
                 </div>
 
-                <button type="button" id="share-btn" class="share-post-btn">
+                <button type="button" id="share-btn" class="share-post-btn btn-glow-sweep">
                     <i class="fas fa-link"></i> Compartir enlace
                 </button>
             </div>
         </div>
     </header>
 
-    <div class="post-cover-wrapper" id="post-cover-box" style="display: none;">
-        <img id="post-cover-img" src="" alt="Portada del blog">
+    <div class="post-cover-wrapper reveal-item" data-reveal="scale" id="post-cover-box" style="display: none;">
+        <div class="post-cover-frame spotlight-surface">
+            <img id="post-cover-img" src="" alt="Portada del blog">
+            <div class="cover-gloss" aria-hidden="true"></div>
+        </div>
     </div>
 
-    <article class="article-body" id="post-content"></article>
+    <main class="post-main-shell">
+        <div class="ambient-orb orb-red-left" aria-hidden="true"></div>
+        <div class="ambient-orb orb-red-right" aria-hidden="true"></div>
 
-    <section class="related-section" id="related-section" style="display: none;">
-        <h3>Más artículos de <span class="highlight">ZyrIsland</span></h3>
-        <div class="blogs-grid" id="related-grid"></div>
-    </section>
+        <article class="article-body" id="post-content"></article>
+
+        <section class="related-section" id="related-section" style="display: none;">
+            <div class="related-header reveal-item" data-reveal="up">
+                <span class="section-tag">SIGUE EXPLORANDO</span>
+                <h3>Más artículos de <span class="highlight">ZyrIsland</span></h3>
+            </div>
+            <div class="blogs-grid" id="related-grid"></div>
+        </section>
+    </main>
+
+    <button type="button" id="back-to-top-btn" class="back-to-top-btn" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <footer class="site-footer">
         <div class="footer-top">
@@ -115,6 +142,113 @@
     </footer>
 
     <script>
+        /* =========================================================
+           PARTÍCULAS INTERACTIVAS EN POST HERO (60 FPS)
+           ========================================================= */
+        (function initPostParticles() {
+            const canvas = document.getElementById("post-particles");
+            if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            const ctx = canvas.getContext("2d");
+            let width = canvas.width = canvas.offsetWidth;
+            let height = canvas.height = canvas.offsetHeight;
+            const mouse = { x: -9999, y: -9999 };
+
+            window.addEventListener("resize", () => {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+            });
+
+            window.addEventListener("mousemove", (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            }, { passive: true });
+
+            const count = Math.min(32, Math.floor(width / 36));
+            const particles = Array.from({ length: count }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: Math.random() * 1.9 + 0.6,
+                vx: (Math.random() - 0.5) * 0.28,
+                vy: -(Math.random() * 0.36 + 0.12),
+                alpha: Math.random() * 0.45 + 0.15
+            }));
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                for (const p of particles) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 100 && dist > 0) {
+                        const force = (100 - dist) / 100;
+                        p.x += (dx / dist) * force * 1.2;
+                        p.y += (dy / dist) * force * 1.2;
+                    }
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; }
+                    if (p.x < -10) p.x = width + 10;
+                    if (p.x > width + 10) p.x = -10;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(230, 21, 41, ${p.alpha})`;
+                    ctx.shadowBlur = 8;
+                    ctx.shadowColor = "rgba(204, 18, 36, 0.7)";
+                    ctx.fill();
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        /* =========================================================
+           REVELADO AL HACER SCROLL + SPOTLIGHT & TILT 3D
+           ========================================================= */
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+
+        function bindRevealElements(root = document) {
+            root.querySelectorAll(".reveal-item").forEach((el) => revealObserver.observe(el));
+        }
+
+        function bindInteractiveCards(root = document) {
+            root.querySelectorAll(".spotlight-surface").forEach((card) => {
+                card.addEventListener("mousemove", (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty("--mouse-x", `${x}px`);
+                    card.style.setProperty("--mouse-y", `${y}px`);
+
+                    if (card.classList.contains("tilt-card") && window.innerWidth > 900) {
+                        const rotateY = ((x / rect.width) - 0.5) * 5;
+                        const rotateX = (0.5 - (y / rect.height)) * 5;
+                        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+                    }
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    if (card.classList.contains("tilt-card")) {
+                        card.style.transform = "";
+                    }
+                });
+            });
+        }
+
+        bindRevealElements();
+        bindInteractiveCards();
+
+        /* =========================================================
+           PARSER MARKDOWN ENRIQUECIDO
+           ========================================================= */
         function escapeHtml(str) {
             return str
                 .replace(/&/g, "&amp;")
@@ -122,10 +256,11 @@
                 .replace(/>/g, "&gt;");
         }
 
-        function parseInline(raw) {
+        function parseInline(raw, shimmerStrong = false) {
             let text = escapeHtml(raw);
+            const strongTag = shimmerStrong ? '<strong class="shimmer-text">$1</strong>' : "<strong>$1</strong>";
             text = text.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]+)\)/g, '<a href="$2" class="md-link" target="_blank" rel="noopener">$1</a>');
-            text = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+            text = text.replace(/\*\*(.+?)\*\*/g, strongTag);
             text = text.replace(/\*(.+?)\*/g, "<em>$1</em>");
             text = text.replace(/~~(.+?)~~/g, "<del>$1</del>");
             text = text.replace(/==(.+?)==/g, '<mark class="md-highlight">$1</mark>');
@@ -157,7 +292,7 @@
 
                 if (/^---+$/.test(trimmed)) {
                     closeLists();
-                    html += '<hr class="md-hr">';
+                    html += '<hr class="md-hr reveal-item" data-reveal="up">';
                     continue;
                 }
 
@@ -165,7 +300,7 @@
                 if (imgMatch) {
                     closeLists();
                     const caption = imgMatch[1] ? `<figcaption>${parseInline(imgMatch[1])}</figcaption>` : "";
-                    html += `<figure class="md-figure"><img src="${imgMatch[2]}" alt="${escapeHtml(imgMatch[1] || 'Imagen')}">${caption}</figure>`;
+                    html += `<figure class="md-figure reveal-item" data-reveal="scale"><img src="${imgMatch[2]}" alt="${escapeHtml(imgMatch[1] || 'Imagen')}">${caption}</figure>`;
                     continue;
                 }
 
@@ -173,32 +308,32 @@
                 if (headingMatch) {
                     closeLists();
                     const level = headingMatch[1].length;
-                    html += `<h${level} class="md-h${level}">${parseInline(headingMatch[2])}</h${level}>`;
+                    html += `<h${level} class="md-h${level} reveal-item" data-reveal="up">${parseInline(headingMatch[2])}</h${level}>`;
                     continue;
                 }
 
                 if (trimmed.startsWith("> ")) {
                     closeLists();
-                    html += `<blockquote class="md-quote">${parseInline(trimmed.slice(2))}</blockquote>`;
+                    html += `<blockquote class="md-quote spotlight-surface reveal-item" data-reveal="left">${parseInline(trimmed.slice(2))}</blockquote>`;
                     continue;
                 }
 
                 if (/^[-*]\s+/.test(trimmed)) {
                     if (inOl) { html += "</ol>"; inOl = false; }
-                    if (!inUl) { html += '<ul class="md-ul">'; inUl = true; }
+                    if (!inUl) { html += '<ul class="md-ul reveal-item" data-reveal="up">'; inUl = true; }
                     html += `<li>${parseInline(trimmed.replace(/^[-*]\s+/, ""))}</li>`;
                     continue;
                 }
 
                 if (/^\d+\.\s+/.test(trimmed)) {
                     if (inUl) { html += "</ul>"; inUl = false; }
-                    if (!inOl) { html += '<ol class="md-ol">'; inOl = true; }
+                    if (!inOl) { html += '<ol class="md-ol reveal-item" data-reveal="up">'; inOl = true; }
                     html += `<li>${parseInline(trimmed.replace(/^\d+\.\s+/, ""))}</li>`;
                     continue;
                 }
 
                 closeLists();
-                html += `<p>${parseInline(trimmed)}</p>`;
+                html += `<p class="reveal-item" data-reveal="up">${parseInline(trimmed)}</p>`;
             }
 
             closeLists();
@@ -232,8 +367,14 @@
                     <span class="dot">•</span>
                     <span class="date">${blog.lectura || "3 min de lectura"}</span>
                 `;
-                document.getElementById("post-title").innerHTML = parseInline(blog.titulo);
+                document.getElementById("post-title").innerHTML = parseInline(blog.titulo, true);
                 document.getElementById("post-summary").innerHTML = parseInline(blog.resumen);
+
+                const tagsEl = document.getElementById("post-tags");
+                if (tagsEl && Array.isArray(blog.etiquetas) && blog.etiquetas.length > 0) {
+                    tagsEl.innerHTML = blog.etiquetas.map(tag => `<span class="post-tag-chip">#${escapeHtml(tag)}</span>`).join("");
+                }
+
                 document.getElementById("post-author-name").textContent = blog.autor || "ZyrAkaTV";
                 document.getElementById("post-author-role").textContent = blog.rolAutor || "Administración ZyrIsland";
                 if (blog.avatarAutor) {
@@ -242,18 +383,26 @@
 
                 if (blog.imagen) {
                     document.getElementById("post-cover-img").src = blog.imagen;
-                    document.getElementById("post-cover-box").style.display = "block";
+                    const coverBox = document.getElementById("post-cover-box");
+                    coverBox.style.display = "block";
+                    bindRevealElements(coverBox);
+                    bindInteractiveCards(coverBox);
                 }
 
-                document.getElementById("post-content").innerHTML = renderRichText(blog.contenido);
+                const contentEl = document.getElementById("post-content");
+                contentEl.innerHTML = renderRichText(blog.contenido);
+                bindRevealElements(contentEl);
+                bindInteractiveCards(contentEl);
 
                 const related = blogs.filter(b => b.id !== blog.id).slice(0, 3);
                 if (related.length > 0) {
-                    document.getElementById("related-section").style.display = "block";
-                    document.getElementById("related-grid").innerHTML = related.map(item => `
-                        <a href="post.html?id=${encodeURIComponent(item.id)}" class="blog-card">
+                    const relSec = document.getElementById("related-section");
+                    relSec.style.display = "block";
+                    document.getElementById("related-grid").innerHTML = related.map((item, idx) => `
+                        <a href="post.html?id=${encodeURIComponent(item.id)}" class="blog-card spotlight-surface tilt-card reveal-item" data-reveal="up" style="--stagger: ${idx * 0.09}s;">
                             <div class="blog-card-img">
                                 <img src="${item.imagen}" alt="${stripMarkdown(item.titulo)}">
+                                <div class="card-img-vignette"></div>
                             </div>
                             <div class="blog-card-body">
                                 <div class="blog-meta-line">
@@ -266,25 +415,37 @@
                             </div>
                         </a>
                     `).join("");
+                    bindRevealElements(relSec);
+                    bindInteractiveCards(relSec);
                 }
             } catch (err) {
                 document.getElementById("post-title").textContent = "Error al cargar el blog";
             }
         }
 
+        const backToTopBtn = document.getElementById("back-to-top-btn");
         window.addEventListener("scroll", () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            const progress = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
             document.getElementById("reading-progress").style.width = `${progress}%`;
-        });
+            if (backToTopBtn) backToTopBtn.classList.toggle("visible", scrollTop > 420);
+        }, { passive: true });
+
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
 
         document.getElementById("share-btn").addEventListener("click", async () => {
             try {
                 await navigator.clipboard.writeText(window.location.href);
                 const btn = document.getElementById("share-btn");
+                btn.classList.add("copied");
                 btn.innerHTML = '<i class="fas fa-check"></i> ¡Enlace copiado!';
                 setTimeout(() => {
+                    btn.classList.remove("copied");
                     btn.innerHTML = '<i class="fas fa-link"></i> Compartir enlace';
                 }, 2500);
             } catch (e) {}
