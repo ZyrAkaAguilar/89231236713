@@ -9,6 +9,9 @@
     <link rel="canonical" href="https://zyrisland.net/soporte/reglas">
     <meta name="theme-color" content="#cc1224">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -20,6 +23,10 @@
     <link rel="manifest" href="../../favicon/site.webmanifest" />
 </head>
 <body>
+    <div class="scroll-progress-track" aria-hidden="true">
+        <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-left">
             <a href="https://zyrisland.net" class="nav-link">Inicio</a>
@@ -42,29 +49,58 @@
     </nav>
 
     <header class="legal-header">
-        <span class="legal-badge">TRANSPARENCIA & PROTECCIÓN DE DATOS • 2026</span>
-        <h1>POLÍTICA DE <span class="highlight">PRIVACIDAD</span></h1>
-        <p>Compromiso oficial de confidencialidad, tratamiento responsable de información y seguridad digital aplicable a todos los <strong>servicios</strong> y servidores de juego y los eventos de <strong>ZyrAkaTV™</strong>.</p>
+        <div class="header-grid-overlay" aria-hidden="true"></div>
+        <canvas id="legal-particles" class="header-particles" aria-hidden="true"></canvas>
+        <div class="header-radial-glow" aria-hidden="true"></div>
+
+        <div class="legal-header-inner">
+            <span class="legal-badge hero-anim" style="--hero-delay: 0.06s;">
+                <span class="kicker-pulse-dot"></span>
+                TRANSPARENCIA & PROTECCIÓN DE DATOS • 2026
+            </span>
+            <h1 class="hero-anim" style="--hero-delay: 0.16s;">POLÍTICA DE <span class="highlight shimmer-text">PRIVACIDAD</span></h1>
+            <p class="hero-anim" style="--hero-delay: 0.28s;">Compromiso oficial de confidencialidad, tratamiento responsable de información y seguridad digital aplicable a todos los <strong>servicios</strong> y servidores de juego y los eventos de <strong>ZyrAkaTV™</strong>.</p>
+
+            <div class="legal-search-bar hero-anim" style="--hero-delay: 0.4s;">
+                <div class="search-input-wrapper spotlight-surface">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="legal-search" placeholder="Buscar sección, dato o palabra clave (ej. cookies, whitelist, Discord, PayPal)..." autocomplete="off">
+                    <button type="button" id="clear-legal-search" class="clear-search-btn" title="Limpiar búsqueda" aria-label="Limpiar búsqueda">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="legal-search-status" class="legal-search-status" aria-live="polite"></div>
+            </div>
+        </div>
     </header>
 
-    <main class="legal-content">
-        <nav class="toc-box" aria-label="Índice de la Política de Privacidad">
+    <main class="legal-content" id="legal-content">
+        <div class="ambient-orb orb-red-left" aria-hidden="true"></div>
+        <div class="ambient-orb orb-red-right" aria-hidden="true"></div>
+
+        <nav class="toc-box spotlight-surface reveal-item" data-reveal="scale" aria-label="Índice de la Política de Privacidad">
             <div class="toc-title"><i class="fas fa-shield-alt"></i> Índice de Privacidad</div>
             <div class="toc-grid">
-                <a href="#seccion-1"><span>01</span> Responsable y Alcance</a>
-                <a href="#seccion-2"><span>02</span> Datos que Recopilamos</a>
-                <a href="#seccion-3"><span>03</span> Finalidad y Base Legal</a>
-                <a href="#seccion-4"><span>04</span> Cookies y Almacenamiento Web</a>
-                <a href="#seccion-5"><span>05</span> Transmisiones, Streams y Contenido</a>
-                <a href="#seccion-6"><span>06</span> Terceros y Transferencias</a>
-                <a href="#seccion-7"><span>07</span> Conservación y Seguridad</a>
-                <a href="#seccion-8"><span>08</span> Protección de Menores</a>
-                <a href="#seccion-9"><span>09</span> Derechos del Usuario y Contacto</a>
+                <a href="#seccion-1" class="btn-glow-sweep" data-target="seccion-1"><span>01</span> Responsable y Alcance</a>
+                <a href="#seccion-2" class="btn-glow-sweep" data-target="seccion-2"><span>02</span> Datos que Recopilamos</a>
+                <a href="#seccion-3" class="btn-glow-sweep" data-target="seccion-3"><span>03</span> Finalidad y Base Legal</a>
+                <a href="#seccion-4" class="btn-glow-sweep" data-target="seccion-4"><span>04</span> Cookies y Almacenamiento Web</a>
+                <a href="#seccion-5" class="btn-glow-sweep" data-target="seccion-5"><span>05</span> Transmisiones, Streams y Contenido</a>
+                <a href="#seccion-6" class="btn-glow-sweep" data-target="seccion-6"><span>06</span> Terceros y Transferencias</a>
+                <a href="#seccion-7" class="btn-glow-sweep" data-target="seccion-7"><span>07</span> Conservación y Seguridad</a>
+                <a href="#seccion-8" class="btn-glow-sweep" data-target="seccion-8"><span>08</span> Protección de Menores</a>
+                <a href="#seccion-9" class="btn-glow-sweep" data-target="seccion-9"><span>09</span> Derechos del Usuario y Contacto</a>
             </div>
         </nav>
 
-        <div class="legal-intro-card">
+        <div class="legal-intro-card spotlight-surface reveal-item" data-reveal="left">
             <p>En <strong>ZyrAkaTV™</strong> y <strong>ZyrIsland</strong> respetamos la privacidad de nuestra comunidad. Este documento explica de forma clara y transparente qué datos técnicos y de perfil recopilamos cuando navegas por nuestros sitios web, utilizas nuestro gestor de instancias o participas en nuestros servidores y eventos, así como los controles que tienes sobre tu información.</p>
+        </div>
+
+        <div id="legal-empty-state" class="empty-state" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No se encontraron cláusulas coincidentes</h3>
+            <p>Intenta buscar con otro término o limpia el filtro para ver la política completa.</p>
         </div>
 
         <h2 id="seccion-1">SECCIÓN 1: IDENTIDAD DEL RESPONSABLE Y ALCANCE</h2>
@@ -84,7 +120,7 @@
         <h2 id="seccion-2">SECCIÓN 2: CATEGORÍAS DE DATOS QUE RECOPILAMOS</h2>
         <p>Aplicamos el principio de <strong>minimización de datos</strong>: únicamente solicitamos y procesamos la información estrictamente indispensable para operar nuestros servicios, garantizar la seguridad de los servidores y verificar la identidad de los participantes autorizados.</p>
 
-        <div class="privacy-table-wrapper">
+        <div class="privacy-table-wrapper spotlight-surface reveal-item" data-reveal="up">
             <table class="privacy-table">
                 <thead>
                     <tr>
@@ -193,11 +229,15 @@
             <li><b>9.3. Modificaciones a esta Política:</b> <strong>ZyrAkaTV™ / ZyrIsland</strong> se reserva el derecho de actualizar la presente Política de Privacidad para adaptarla a nuevas funcionalidades técnicas o cambios normativos. Toda actualización entrará en vigor desde el momento de su publicación en esta página.</li>
         </ul>
 
-        <div class="signature-block">
+        <div class="signature-block spotlight-surface reveal-item" data-reveal="up">
             <strong>ZyrAkaTV™ | Cyn Zamora Aguilar</strong>
             <span>Dirección General & Protección de Datos — ZyrIsland</span>
         </div>
     </main>
+
+    <button type="button" id="back-to-top-btn" class="back-to-top-btn" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <footer class="site-footer">
         <div class="footer-top">
@@ -238,5 +278,301 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        /* =========================================================
+           1. BARRA DE PROGRESO DE LECTURA + BOTÓN VOLVER ARRIBA
+           ========================================================= */
+        const scrollProgressBar = document.getElementById("scroll-progress-bar");
+        const backToTopBtn = document.getElementById("back-to-top-btn");
+
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+            if (scrollProgressBar) scrollProgressBar.style.width = `${pct}%`;
+            if (backToTopBtn) backToTopBtn.classList.toggle("visible", scrollTop > 420);
+        }, { passive: true });
+
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
+
+        /* =========================================================
+           2. PARTÍCULAS INTERACTIVAS EN EL HEADER (60 FPS)
+           ========================================================= */
+        (function initLegalParticles() {
+            const canvas = document.getElementById("legal-particles");
+            if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            const ctx = canvas.getContext("2d");
+            let width = canvas.width = canvas.offsetWidth;
+            let height = canvas.height = canvas.offsetHeight;
+            const mouse = { x: -9999, y: -9999 };
+
+            window.addEventListener("resize", () => {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+            });
+
+            window.addEventListener("mousemove", (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            }, { passive: true });
+
+            const count = Math.min(36, Math.floor(width / 34));
+            const particles = Array.from({ length: count }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: Math.random() * 2 + 0.7,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: -(Math.random() * 0.38 + 0.14),
+                alpha: Math.random() * 0.48 + 0.16
+            }));
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                for (const p of particles) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 105 && dist > 0) {
+                        const force = (105 - dist) / 105;
+                        p.x += (dx / dist) * force * 1.25;
+                        p.y += (dy / dist) * force * 1.25;
+                    }
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; }
+                    if (p.x < -10) p.x = width + 10;
+                    if (p.x > width + 10) p.x = -10;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(230, 21, 41, ${p.alpha})`;
+                    ctx.shadowBlur = 9;
+                    ctx.shadowColor = "rgba(204, 18, 36, 0.75)";
+                    ctx.fill();
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        /* =========================================================
+           3. REVELADO AL HACER SCROLL & SPOTLIGHT DINÁMICO
+           ========================================================= */
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+
+        document.querySelectorAll(".legal-content h2, .legal-content h3, .legal-content > ul, .legal-content > p").forEach((el) => {
+            el.classList.add("reveal-item");
+            el.setAttribute("data-reveal", "up");
+        });
+
+        document.querySelectorAll(".reveal-item").forEach((el) => revealObserver.observe(el));
+
+        document.querySelectorAll(".spotlight-surface").forEach((surface) => {
+            surface.addEventListener("mousemove", (e) => {
+                const rect = surface.getBoundingClientRect();
+                surface.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+                surface.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+            });
+        });
+
+        /* =========================================================
+           4. ENLACES DIRECTOS A CADA SECCIÓN + SCROLL SPY EN ÍNDICE
+           ========================================================= */
+        const sectionHeadings = Array.from(document.querySelectorAll(".legal-content h2[id]"));
+        const tocLinks = Array.from(document.querySelectorAll(".toc-grid a[data-target]"));
+
+        sectionHeadings.forEach((h2) => {
+            const copyBtn = document.createElement("button");
+            copyBtn.type = "button";
+            copyBtn.className = "section-anchor-btn";
+            copyBtn.title = "Copiar enlace directo a esta sección";
+            copyBtn.setAttribute("aria-label", "Copiar enlace directo a esta sección");
+            copyBtn.innerHTML = '<i class="fas fa-link"></i>';
+
+            copyBtn.addEventListener("click", async () => {
+                const url = `${window.location.origin}${window.location.pathname}#${h2.id}`;
+                try {
+                    await navigator.clipboard.writeText(url);
+                    copyBtn.classList.add("copied");
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                    setTimeout(() => {
+                        copyBtn.classList.remove("copied");
+                        copyBtn.innerHTML = '<i class="fas fa-link"></i>';
+                    }, 2000);
+                } catch (e) {}
+            });
+
+            h2.appendChild(copyBtn);
+        });
+
+        function updateActiveToc() {
+            const offset = 190;
+            let activeId = sectionHeadings[0]?.id || "";
+            for (const h2 of sectionHeadings) {
+                if (h2.getBoundingClientRect().top <= offset) {
+                    activeId = h2.id;
+                }
+            }
+            tocLinks.forEach((link) => {
+                link.classList.toggle("active", link.dataset.target === activeId);
+            });
+        }
+
+        window.addEventListener("scroll", updateActiveToc, { passive: true });
+        updateActiveToc();
+
+        /* =========================================================
+           5. BUSCADOR INSTANTÁNEO DE CLÁUSULAS, TABLAS Y SECCIONES
+           ========================================================= */
+        const searchInput = document.getElementById("legal-search");
+        const clearBtn = document.getElementById("clear-legal-search");
+        const statusEl = document.getElementById("legal-search-status");
+        const emptyStateEl = document.getElementById("legal-empty-state");
+
+        const sections = [];
+        let currentSection = null;
+        let currentArticle = null;
+
+        Array.from(document.getElementById("legal-content").children).forEach((node) => {
+            if (node.tagName === "H2") {
+                currentSection = { heading: node, articles: [], directNodes: [] };
+                sections.push(currentSection);
+                currentArticle = null;
+            } else if (node.tagName === "H3" && currentSection) {
+                currentArticle = { heading: node, nodes: [] };
+                currentSection.articles.push(currentArticle);
+            } else if (currentArticle) {
+                currentArticle.nodes.push(node);
+            } else if (currentSection) {
+                currentSection.directNodes.push(node);
+            }
+        });
+
+        function filterNodeList(nodes, q, forceShowAll) {
+            let anyMatch = false;
+            let localHits = 0;
+
+            nodes.forEach((n) => {
+                if (n.tagName === "UL") {
+                    const topItems = Array.from(n.children).filter((c) => c.tagName === "LI");
+                    let ulHasVisible = false;
+
+                    topItems.forEach((li) => {
+                        const textMatch = li.textContent.toLowerCase().includes(q);
+                        const liVisible = forceShowAll || textMatch;
+                        li.style.display = liVisible ? "" : "none";
+                        li.classList.toggle("search-match-li", !forceShowAll && textMatch);
+                        if (liVisible) ulHasVisible = true;
+                        if (textMatch) localHits++;
+                    });
+
+                    n.style.display = ulHasVisible ? "" : "none";
+                    if (ulHasVisible) anyMatch = true;
+                } else if (n.classList.contains("privacy-table-wrapper")) {
+                    const rows = Array.from(n.querySelectorAll("tbody tr"));
+                    let tableHasVisible = false;
+
+                    rows.forEach((tr) => {
+                        const rowMatch = tr.textContent.toLowerCase().includes(q);
+                        const rowVisible = forceShowAll || rowMatch;
+                        tr.style.display = rowVisible ? "" : "none";
+                        tr.classList.toggle("search-match-tr", !forceShowAll && rowMatch);
+                        if (rowVisible) tableHasVisible = true;
+                        if (rowMatch) localHits++;
+                    });
+
+                    n.style.display = tableHasVisible ? "" : "none";
+                    if (tableHasVisible) anyMatch = true;
+                } else {
+                    const pMatch = n.textContent.toLowerCase().includes(q);
+                    const pVisible = forceShowAll || pMatch;
+                    n.style.display = pVisible ? "" : "none";
+                    if (pVisible) anyMatch = true;
+                    if (pMatch) localHits++;
+                }
+            });
+
+            return { anyMatch, localHits };
+        }
+
+        function resetNodes(nodes) {
+            nodes.forEach((n) => {
+                n.style.display = "";
+                n.querySelectorAll("li").forEach((li) => {
+                    li.style.display = "";
+                    li.classList.remove("search-match-li");
+                });
+                n.querySelectorAll("tbody tr").forEach((tr) => {
+                    tr.style.display = "";
+                    tr.classList.remove("search-match-tr");
+                });
+            });
+        }
+
+        function filterLegalContent(rawQuery) {
+            const q = rawQuery.trim().toLowerCase();
+            clearBtn.style.display = q ? "block" : "none";
+
+            if (!q) {
+                statusEl.textContent = "";
+                emptyStateEl.style.display = "none";
+                sections.forEach((sec) => {
+                    sec.heading.style.display = "";
+                    resetNodes(sec.directNodes);
+                    sec.articles.forEach((art) => {
+                        art.heading.style.display = "";
+                        resetNodes(art.nodes);
+                    });
+                });
+                return;
+            }
+
+            let matchingSections = 0;
+
+            sections.forEach((sec) => {
+                const secHeadingMatch = sec.heading.textContent.toLowerCase().includes(q);
+                const directRes = filterNodeList(sec.directNodes, q, secHeadingMatch);
+                let sectionHasMatch = secHeadingMatch || directRes.anyMatch;
+
+                sec.articles.forEach((art) => {
+                    const artHeadingMatch = art.heading.textContent.toLowerCase().includes(q);
+                    const artRes = filterNodeList(art.nodes, q, secHeadingMatch || artHeadingMatch);
+                    const artVisible = secHeadingMatch || artHeadingMatch || artRes.anyMatch;
+                    art.heading.style.display = artVisible ? "" : "none";
+                    if (artVisible) sectionHasMatch = true;
+                });
+
+                sec.heading.style.display = sectionHasMatch ? "" : "none";
+                if (sectionHasMatch) matchingSections++;
+            });
+
+            emptyStateEl.style.display = matchingSections === 0 ? "block" : "none";
+            statusEl.textContent = matchingSections > 0
+                ? `${matchingSections} ${matchingSections === 1 ? "sección coincidente" : "secciones coincidentes"}`
+                : "Sin coincidencias exactas";
+        }
+
+        searchInput.addEventListener("input", (e) => filterLegalContent(e.target.value));
+        clearBtn.addEventListener("click", () => {
+            searchInput.value = "";
+            filterLegalContent("");
+            searchInput.focus();
+        });
+    </script>
 </body>
 </html>
