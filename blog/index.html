@@ -152,9 +152,6 @@
             });
         }
 
-        /* =========================================================
-           PARTÍCULAS INTERACTIVAS EN EL HEADER (60 FPS)
-           ========================================================= */
         (function initHeaderParticles() {
             const canvas = document.getElementById("blog-particles");
             if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -215,9 +212,6 @@
             animate();
         })();
 
-        /* =========================================================
-           REVELADO AL HACER SCROLL + SPOTLIGHT & TILT 3D
-           ========================================================= */
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -258,9 +252,6 @@
         bindRevealElements();
         bindInteractiveCards();
 
-        /* =========================================================
-           PARSER MARKDOWN Y CARGA DE BLOGS.JSON
-           ========================================================= */
         function parseInline(text, shimmerStrong = false) {
             if (!text) return "";
             const strongTag = shimmerStrong ? '<strong class="shimmer-text">$1</strong>' : "<strong>$1</strong>";
