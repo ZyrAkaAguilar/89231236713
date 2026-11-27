@@ -142,9 +142,6 @@
     </footer>
 
     <script>
-        /* =========================================================
-           PARTÍCULAS INTERACTIVAS EN POST HERO (60 FPS)
-           ========================================================= */
         (function initPostParticles() {
             const canvas = document.getElementById("post-particles");
             if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -203,9 +200,6 @@
             animate();
         })();
 
-        /* =========================================================
-           REVELADO AL HACER SCROLL + SPOTLIGHT & TILT 3D
-           ========================================================= */
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -246,9 +240,6 @@
         bindRevealElements();
         bindInteractiveCards();
 
-        /* =========================================================
-           PARSER MARKDOWN ENRIQUECIDO
-           ========================================================= */
         function escapeHtml(str) {
             return str
                 .replace(/&/g, "&amp;")
