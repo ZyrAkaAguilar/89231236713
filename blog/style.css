@@ -32,9 +32,6 @@ body {
     color: var(--accent-red);
 }
 
-/* =========================================
-   KEYFRAMES DE ANIMACIÓN AAA
-   ========================================================= */
 @keyframes heroStaggerIn {
     0% {
         opacity: 0;
@@ -84,9 +81,6 @@ body {
     100% { transform: translateX(240%) skewX(-18deg); }
 }
 
-/* =========================================
-   BARRAS DE PROGRESO SUPERIORES
-   ========================================================= */
 .scroll-progress-track {
     position: fixed;
     top: 80px;
@@ -111,9 +105,6 @@ body {
     transition: width 0.08s linear;
 }
 
-/* =========================================
-   SISTEMA DE REVELADO AL HACER SCROLL
-   ========================================================= */
 .hero-anim {
     opacity: 0;
     animation: heroStaggerIn 0.82s cubic-bezier(0.16, 1, 0.3, 1) var(--hero-delay, 0s) forwards;
@@ -160,9 +151,6 @@ body {
     filter: drop-shadow(0 0 18px rgba(204, 18, 36, 0.32));
 }
 
-/* =========================================
-   SPOTLIGHT DINÁMICO + DESTELLO EN BOTONES
-   ========================================================= */
 .spotlight-surface {
     position: relative;
     overflow: hidden;
@@ -214,9 +202,6 @@ body {
     left: 135%;
 }
 
-/* =========================================
-   NAVBAR (Idéntica a la original)
-   ========================================================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -274,9 +259,6 @@ body {
     transform: translateY(-3px);
 }
 
-/* =========================================
-   HEADER & BUSCADOR DE BLOGS REMASTERIZADO
-   ========================================================= */
 .blog-header {
     position: relative;
     margin-top: 80px;
@@ -471,9 +453,6 @@ body {
     box-shadow: 0 6px 22px rgba(204, 18, 36, 0.42);
 }
 
-/* =========================================
-   ORBES AMBIENTALES Y CONTENEDOR DE BLOGS
-   ========================================================= */
 .blogs-container {
     position: relative;
     max-width: 1280px;
@@ -520,9 +499,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* =========================================
-   ARTÍCULO DESTACADO (FEATURED BANNER)
-   ========================================================= */
 .featured-blog {
     position: relative;
     z-index: 2;
@@ -676,9 +652,6 @@ body {
     transform: translateX(3px);
 }
 
-/* =========================================
-   CUADRÍCULA DE TARJETAS DE BLOG
-   ========================================================= */
 .blogs-grid {
     position: relative;
     z-index: 2;
@@ -826,9 +799,6 @@ body {
     margin: 0;
 }
 
-/* =========================================
-   BOTÓN FLOTANTE VOLVER ARRIBA
-   ========================================================= */
 .back-to-top-btn {
     position: fixed;
     bottom: 28px;
@@ -865,9 +835,6 @@ body {
     transform: translateY(-3px);
 }
 
-/* =========================================
-   PÁGINA DE ARTÍCULO INDIVIDUAL (post.html)
-   ========================================================= */
 .post-hero {
     position: relative;
     margin-top: 80px;
@@ -1062,9 +1029,6 @@ body {
     z-index: 2;
 }
 
-/* =========================================
-   ESTILOS DEL PARSER ENRIQUECIDO (#, **, *, etc.)
-   ========================================================= */
 .article-body {
     max-width: 860px;
     margin: 0 auto;
@@ -1251,9 +1215,6 @@ body {
     text-transform: uppercase;
 }
 
-/* =========================================
-   FOOTER (Idéntico al original)
-   ========================================================= */
 .site-footer {
     position: relative;
     z-index: 2;
@@ -1323,9 +1284,6 @@ body {
 .footer-socials a { color: #888; font-size: 1.2rem; transition: color 0.3s; }
 .footer-socials a:hover { color: #fff; }
 
-/* =========================================
-   ACCESIBILIDAD & RESPONSIVE DESIGN
-   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
