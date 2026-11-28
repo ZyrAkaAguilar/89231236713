@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>BetaTest Official | ZyrAkaTV™</title>
-    <meta name="description" content="Estado en vivo, dirección IP, versión de Minecraft y cupos disponibles para los BetaTests públicos de ZyrIsland.">
+    <meta name="description" content="Estado en vivo y acceso a los BetaTests públicos de ZyrIsland.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://zyrisland.net/betatest/">
     <meta name="theme-color" content="#cc1224">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ZyrAkaTV™ | Betatest">
-    <meta property="og:title" content="BetaTest Oficial — ZyrIsland (JAVA ONLY | 1.21.11)">
-    <meta property="og:description" content="Copia la IP oficial, revisa la versión requerida y mira los cupos disponibles en tiempo real.">
+    <meta property="og:title" content="BetaTest Oficial — ZyrIsland">
+    <meta property="og:description" content="Consulta la disponibilidad en tiempo real y únete a las pruebas públicas de ZyrIsland.">
     <meta property="og:url" content="https://zyrisland.net/betatest/">
     <meta property="og:image" content="https://app.zyrisland.net/assets/icons/zyrakatv-ico.png">
     <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="BetaTest Official — ZyrIsland">
-    <meta name="twitter:description" content="Estado en vivo, IP de conexión, versión de Minecraft y cupos para las pruebas públicas de ZyrIsland.">
+    <meta name="twitter:description" content="Consulta la disponibilidad en tiempo real y únete a las pruebas públicas de ZyrIsland.">
     <meta name="twitter:image" content="https://app.zyrisland.net/assets/icons/zyrakatv-ico.png">
 
     <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
@@ -76,6 +76,9 @@
             color: var(--accent-red);
         }
 
+        /* =========================================================
+           ANIMACIONES GLOBALES & MICRO-INTERACCIONES
+           ========================================================= */
         @keyframes heroKenBurns {
             0% { transform: scale(1) translate3d(0, 0, 0); }
             50% { transform: scale(1.06) translate3d(-1%, -1%, 0); }
@@ -201,6 +204,9 @@
             left: 135%;
         }
 
+        /* =========================================================
+           NAVBAR & MENÚ MÓVIL GLASSMORPHISM
+           ========================================================= */
         .navbar {
             position: fixed;
             top: 0;
@@ -307,6 +313,9 @@
             display: none;
         }
 
+        /* =========================================================
+           ESCENARIO PRINCIPAL & FONDOS AMBIENTALES
+           ========================================================= */
         .betatest-stage {
             position: relative;
             flex: 1;
@@ -386,6 +395,9 @@
             margin: 0 auto;
         }
 
+        /* =========================================================
+           BARRA DE ESTADO & UTILIDADES PÚBLICAS
+           ========================================================= */
         .app-control-bar {
             display: flex;
             align-items: center;
@@ -432,7 +444,7 @@
             box-shadow: 0 0 8px var(--accent-green);
         }
 
-        .sync-dot.offline {
+        .sync-dot.closed {
             background-color: var(--accent-red);
             box-shadow: 0 0 8px var(--accent-red);
         }
@@ -445,6 +457,13 @@
 
         .app-tools-right {
             display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .session-only-tools {
+            display: none;
             align-items: center;
             gap: 8px;
             flex-wrap: wrap;
@@ -492,6 +511,9 @@
             animation: stageFadeIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
+        /* =========================================================
+           LOADING STATE
+           ========================================================= */
         .loading-box {
             text-align: center;
             padding: 95px 20px;
@@ -513,6 +535,9 @@
             animation: spin 0.9s linear infinite;
         }
 
+        /* =========================================================
+           ESTADO ABIERTO (BETATEST ACTIVO)
+           ========================================================= */
         .live-header {
             text-align: center;
             margin-bottom: 38px;
@@ -598,6 +623,7 @@
             line-height: 1.65;
         }
 
+        /* TARJETA HERO IP */
         .ip-hero-card {
             background: linear-gradient(145deg, rgba(19, 19, 27, 0.96) 0%, rgba(12, 12, 17, 0.96) 100%);
             backdrop-filter: blur(10px);
@@ -727,6 +753,7 @@
             transform: translateY(-2px);
         }
 
+        /* GRID DE ESPECIFICACIONES */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -850,6 +877,7 @@
             transition: width 0.5s ease;
         }
 
+        /* SECCIÓN DIVIDIDA: OBJETIVOS (SOLO LECTURA) + ACCIONES DISCORD */
         .details-split {
             display: grid;
             grid-template-columns: 1.38fr 1fr;
@@ -891,26 +919,6 @@
             color: var(--accent-red);
         }
 
-        .qa-progress-pill {
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            background: rgba(204, 18, 36, 0.14);
-            border: 1px solid rgba(204, 18, 36, 0.35);
-            color: #ff6b79;
-            padding: 4px 10px;
-            border-radius: 5px;
-        }
-
-        .objectives-hint {
-            position: relative;
-            z-index: 2;
-            font-size: 0.8rem;
-            color: #8f8f9e;
-            margin: -8px 0 16px 0;
-        }
-
         .objectives-list {
             position: relative;
             z-index: 2;
@@ -925,46 +933,28 @@
         .objectives-list li {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            font-size: 0.91rem;
-            color: #d8d8e2;
-            line-height: 1.5;
+            gap: 13px;
+            font-size: 0.92rem;
+            color: #dcdce6;
+            line-height: 1.52;
             background-color: var(--surface-inner);
-            padding: 13px 15px;
+            padding: 14px 16px;
             border-radius: 7px;
             border: 1px solid #22222e;
-            cursor: pointer;
-            user-select: none;
-            transition: border-color 0.25s, background-color 0.25s, transform 0.2s;
+            border-left: 3px solid var(--accent-red);
+            transition: border-color 0.25s, background-color 0.25s;
         }
 
         .objectives-list li:hover {
-            border-color: rgba(204, 18, 36, 0.5);
-            transform: translateX(3px);
+            border-color: rgba(204, 18, 36, 0.55);
+            background-color: #191923;
         }
 
-        .objectives-list li.checked {
-            border-color: rgba(16, 185, 129, 0.45);
-            background-color: rgba(16, 185, 129, 0.08);
-            color: #a7f3d0;
-        }
-
-        .objectives-list li.checked span {
-            text-decoration: line-through;
-            opacity: 0.85;
-        }
-
-        .obj-check-icon {
+        .obj-bullet-icon {
             color: var(--accent-red);
-            margin-top: 2px;
-            font-size: 1.05rem;
+            margin-top: 3px;
+            font-size: 0.95rem;
             flex-shrink: 0;
-            transition: color 0.25s, transform 0.25s;
-        }
-
-        .objectives-list li.checked .obj-check-icon {
-            color: var(--accent-green);
-            transform: scale(1.1);
         }
 
         .discord-action-card {
@@ -1068,15 +1058,18 @@
             color: #ffffff;
         }
 
+        /* =========================================================
+           ESTADO CERRADO (CERO INFORMACIÓN INTERNA EXPUESTA)
+           ========================================================= */
         .locked-wrapper {
-            max-width: 780px;
-            margin: 10px auto 0 auto;
+            max-width: 720px;
+            margin: 14px auto 0 auto;
             background: linear-gradient(145deg, rgba(18, 18, 25, 0.96) 0%, rgba(11, 11, 16, 0.96) 100%);
             backdrop-filter: blur(12px);
             border: 1px solid #262634;
             border-top: 3px solid var(--accent-red);
             border-radius: 14px;
-            padding: 52px 42px;
+            padding: 54px 40px;
             text-align: center;
             box-shadow: 0 28px 65px rgba(0, 0, 0, 0.85);
         }
@@ -1140,83 +1133,27 @@
             color: #c2c2ce;
             font-size: 1.01rem;
             line-height: 1.7;
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto 26px auto;
         }
 
-        .standby-specs-strip {
+        .next-session-box {
             position: relative;
             z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 24px;
-        }
-
-        .next-session-box {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             background-color: var(--surface-inner);
             border: 1px solid #282836;
-            padding: 11px 18px;
+            padding: 12px 22px;
             border-radius: 7px;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: #dcdce6;
+            margin-bottom: 32px;
         }
 
         .next-session-box i {
             color: var(--accent-red);
-        }
-
-        .upcoming-preview-box {
-            position: relative;
-            z-index: 2;
-            text-align: left;
-            background: rgba(12, 12, 17, 0.85);
-            border: 1px solid #22222e;
-            border-radius: 10px;
-            padding: 20px 22px;
-            margin: 0 auto 30px auto;
-            max-width: 620px;
-        }
-
-        .upcoming-preview-title {
-            font-size: 0.76rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            color: #ff4d5e;
-            margin: 0 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .upcoming-preview-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .upcoming-preview-list li {
-            font-size: 0.86rem;
-            color: #c4c4d0;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            line-height: 1.45;
-        }
-
-        .upcoming-preview-list li i {
-            color: var(--accent-red);
-            margin-top: 3px;
-            font-size: 0.8rem;
         }
 
         .locked-actions {
@@ -1225,7 +1162,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
@@ -1233,12 +1170,12 @@
             background-color: var(--surface-inner);
             color: #ffffff;
             text-decoration: none;
-            padding: 14px 22px;
+            padding: 14px 24px;
             min-height: 48px;
             border-radius: 7px;
             border: 1px solid #2c2c3a;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.84rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
@@ -1256,6 +1193,9 @@
             transform: translateY(-2px);
         }
 
+        /* =========================================================
+           MODALES PÚBLICOS (GUÍA DE CONEXIÓN & REPORTE DE BUGS)
+           ========================================================= */
         .app-modal-backdrop {
             position: fixed;
             inset: 0;
@@ -1466,6 +1406,9 @@
             min-width: 180px;
         }
 
+        /* =========================================================
+           TOAST & BOTÓN VOLVER ARRIBA
+           ========================================================= */
         .toast-banner {
             position: fixed;
             bottom: 28px;
@@ -1534,6 +1477,9 @@
             transform: translateY(-3px);
         }
 
+        /* =========================================================
+           FOOTER UNIFICADO
+           ========================================================= */
         .site-footer {
             position: relative;
             z-index: 2;
@@ -1603,6 +1549,9 @@
         .footer-socials a { color: #888; font-size: 1.2rem; transition: color 0.3s; }
         .footer-socials a:hover { color: #fff; }
 
+        /* =========================================================
+           ACCESIBILIDAD & RESPONSIVE DESIGN (MÓVIL & TABLET)
+           ========================================================= */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -1884,8 +1833,7 @@
                 width: 100%;
             }
 
-            .locked-actions a,
-            .locked-actions button {
+            .locked-actions a {
                 width: 100%;
             }
 
@@ -1954,8 +1902,8 @@
                 <i class="fas fa-chevron-right mobile-nav-arrow"></i>
             </a>
             <a href="https://zyrisland.net/betatest/" class="mobile-nav-link" style="border-color: rgba(204,18,36,0.5); background: rgba(204,18,36,0.12); color: #fff;">
-                <span><i class="fas fa-flask"></i> Panel BetaTest</span>
-                <span class="mobile-active-pill" id="drawer-beta-badge">LIVE</span>
+                <span><i class="fas fa-flask"></i> BetaTest</span>
+                <span class="mobile-active-pill" id="drawer-beta-badge">ESTADO</span>
             </a>
         </div>
         <div class="mobile-nav-footer">
@@ -1977,23 +1925,25 @@
         <div class="ambient-orb orb-right" aria-hidden="true"></div>
 
         <div class="stage-container">
-            <div class="app-control-bar" role="region" aria-label="Barra de control del BetaTest">
+            <div class="app-control-bar" role="region" aria-label="Estado de sincronización">
                 <div class="telemetry-left">
                     <span class="sync-pill">
                         <span class="sync-dot" id="telemetry-dot"></span>
-                        <span id="telemetry-status-text">TELEMETRÍA EN VIVO</span>
+                        <span id="telemetry-status-text">VERIFICANDO ESTADO</span>
                     </span>
                     <span class="sync-timestamp" id="last-sync-label">Sincronizando...</span>
                 </div>
 
                 <div class="app-tools-right">
-                    <button type="button" class="app-tool-btn" id="open-connect-modal-btn">
-                        <i class="fas fa-plug"></i> Guía de Conexión
-                    </button>
-                    <button type="button" class="app-tool-btn" id="open-bug-modal-btn">
-                        <i class="fas fa-bug"></i> Reportar Bug
-                    </button>
-                    <button type="button" class="app-tool-btn icon-only" id="manual-refresh-btn" title="Sincronizar estado ahora" aria-label="Sincronizar estado ahora">
+                    <div class="session-only-tools" id="session-tools-group">
+                        <button type="button" class="app-tool-btn" id="open-connect-modal-btn">
+                            <i class="fas fa-plug"></i> Guía de Conexión
+                        </button>
+                        <button type="button" class="app-tool-btn" id="open-bug-modal-btn">
+                            <i class="fas fa-bug"></i> Reportar Bug
+                        </button>
+                    </div>
+                    <button type="button" class="app-tool-btn icon-only" id="manual-refresh-btn" title="Actualizar estado" aria-label="Actualizar estado">
                         <i class="fas fa-sync-alt"></i>
                     </button>
                 </div>
@@ -2002,12 +1952,13 @@
             <div id="betatest-root">
                 <div class="loading-box">
                     <div class="spinner"></div>
-                    <div>Sincronizando estado del servidor de pruebas...</div>
+                    <div>Verificando disponibilidad de BetaTest...</div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- MODAL PÚBLICO 1: GUÍA DE CONEXIÓN (SOLO DISPONIBLE CUANDO ACTIVO === TRUE) -->
     <div class="app-modal-backdrop" id="connect-modal" aria-hidden="true" role="dialog" aria-labelledby="connect-modal-title">
         <div class="app-modal-card">
             <div class="modal-header">
@@ -2023,6 +1974,7 @@
         </div>
     </div>
 
+    <!-- MODAL PÚBLICO 2: GENERADOR DE REPORTE DE BUGS (SOLO DISPONIBLE CUANDO ACTIVO === TRUE) -->
     <div class="app-modal-backdrop" id="bug-modal" aria-hidden="true" role="dialog" aria-labelledby="bug-modal-title">
         <div class="app-modal-card">
             <div class="modal-header">
@@ -2035,7 +1987,7 @@
             <form id="bug-report-form">
                 <div class="bug-form-group">
                     <label for="bug-nick">Tu Nick en Minecraft</label>
-                    <input type="text" id="bug-nick" class="bug-input" placeholder="Ej: ZyrAkaAguilar" maxlength="24" required>
+                    <input type="text" id="bug-nick" class="bug-input" placeholder="Tu nombre de usuario en el servidor" maxlength="24" required>
                 </div>
 
                 <div class="bug-form-group">
@@ -2050,12 +2002,12 @@
 
                 <div class="bug-form-group">
                     <label for="bug-area">Minijuego o Zona</label>
-                    <input type="text" id="bug-area" class="bug-input" placeholder="Ej: Parkour Tag, Hide & Seek, Musical Doors, Lobby..." required>
+                    <input type="text" id="bug-area" class="bug-input" placeholder="Indica en qué minijuego o zona ocurrió" required>
                 </div>
 
                 <div class="bug-form-group">
                     <label for="bug-desc">¿Qué ocurrió exactamente?</label>
-                    <textarea id="bug-desc" class="bug-textarea" placeholder="Describe qué estabas haciendo y qué pasó para que podamos reproducirlo..." required></textarea>
+                    <textarea id="bug-desc" class="bug-textarea" placeholder="Describe qué estabas haciendo y qué pasó para poder reproducirlo..." required></textarea>
                 </div>
 
                 <div class="modal-footer-actions">
@@ -2121,9 +2073,12 @@
 
     <script>
         let lastSnapshot = "";
-        let currentBetaData = null;
+        let activeSessionData = null;
         let toastTimer;
 
+        /* =========================================================
+           MENÚ HAMBURGUESA MÓVIL & DRAWER GLASSMORPHISM
+           ========================================================= */
         const navToggle = document.getElementById("nav-toggle");
         const mobileDrawer = document.getElementById("mobile-nav-drawer");
         const mobileBackdrop = document.getElementById("mobile-nav-backdrop");
@@ -2158,6 +2113,9 @@
             }, { passive: true });
         }
 
+        /* =========================================================
+           BARRA DE PROGRESO DE SCROLL & BOTÓN VOLVER ARRIBA
+           ========================================================= */
         const scrollProgressBar = document.getElementById("scroll-progress-bar");
         const backToTopBtn = document.getElementById("back-to-top-btn");
 
@@ -2175,6 +2133,9 @@
             });
         }
 
+        /* =========================================================
+           PARTÍCULAS INTERACTIVAS EN EL ESCENARIO
+           ========================================================= */
         (function initParticles() {
             const canvas = document.getElementById("betatest-particles");
             if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -2245,7 +2206,11 @@
             });
         }
 
+        /* =========================================================
+           MODALES PÚBLICOS (SOLO ACCESIBLES CON SESIÓN ACTIVA)
+           ========================================================= */
         function openModal(id) {
+            if (!activeSessionData || activeSessionData.activo !== true) return;
             const modal = document.getElementById(id);
             if (!modal) return;
             if (id === "connect-modal") populateConnectModal();
@@ -2264,6 +2229,10 @@
             }
         }
 
+        function closeAllModals() {
+            document.querySelectorAll(".app-modal-backdrop.is-open").forEach((m) => closeModal(m.id));
+        }
+
         document.querySelectorAll("[data-close-modal]").forEach((btn) => {
             btn.addEventListener("click", () => closeModal(btn.dataset.closeModal));
         });
@@ -2277,7 +2246,7 @@
         document.addEventListener("keydown", (e) => {
             if (e.key === "Escape") {
                 if (navToggle && navToggle.classList.contains("is-open")) setMobileMenuOpen(false);
-                document.querySelectorAll(".app-modal-backdrop.is-open").forEach((m) => closeModal(m.id));
+                closeAllModals();
             }
         });
 
@@ -2285,20 +2254,22 @@
         document.getElementById("open-bug-modal-btn").addEventListener("click", () => openModal("bug-modal"));
 
         function populateConnectModal() {
-            const srv = (currentBetaData && currentBetaData.servidor) || {};
-            const ip = srv.ip || "play.zyrisland.net";
-            const version = srv.version || "Java 1.21.11";
+            if (!activeSessionData || activeSessionData.activo !== true) return;
+            const srv = activeSessionData.servidor || {};
+            const ip = srv.ip || "";
+            const version = srv.version || "";
+            const acceso = srv.acceso || "";
             const modpackReq = Boolean(srv.modpack_requerido);
-            const modpackUrl = srv.modpack_url || "https://app.zyrisland.net";
+            const modpackUrl = srv.modpack_url || "";
 
             document.getElementById("connect-steps-body").innerHTML = `
                 <div class="connect-step-item">
                     <div class="step-num">1</div>
                     <div class="step-info">
-                        <strong>Inicia Minecraft en ${version}</strong>
+                        <strong>Inicia Minecraft${version ? ` en ${version}` : ""}</strong>
                         <p>${modpackReq
-                            ? `Esta sesión requiere el modpack oficial. Descárgalo desde <a href="${modpackUrl}" target="_blank" rel="noopener" style="color:#ff4d5e;font-weight:700;">Events Portal</a> antes de entrar.`
-                            : `No necesitas instalar mods externos; puedes entrar con tu launcher favorito (${srv.acceso || "Premium & No-Premium"}).`
+                            ? `Esta sesión requiere el modpack oficial.${modpackUrl ? ` Descárgalo desde <a href="${modpackUrl}" target="_blank" rel="noopener" style="color:#ff4d5e;font-weight:700;">el enlace oficial</a> antes de entrar.` : ""}`
+                            : `No requiere modpack externo${acceso ? ` (${acceso})` : ""}.`
                         }</p>
                     </div>
                 </div>
@@ -2306,24 +2277,24 @@
                     <div class="step-num">2</div>
                     <div class="step-info">
                         <strong>Activa los Paquetes de Recursos del Servidor</strong>
-                        <p>En <em>Multijugador → Añadir servidor</em>, asegúrate de poner <strong>"Paquetes de recursos: Sí"</strong> para cargar texturas, sonidos y modelos 3D personalizados.</p>
+                        <p>En <em>Multijugador → Añadir servidor</em>, selecciona <strong>"Paquetes de recursos: Sí"</strong> para cargar correctamente los recursos de la sesión.</p>
                     </div>
                 </div>
+                ${ip ? `
                 <div class="connect-step-item">
                     <div class="step-num">3</div>
                     <div class="step-info">
-                        <strong>Pega la IP Oficial y Conéctate</strong>
-                        <p>Usa la siguiente dirección en el campo de servidor:</p>
+                        <strong>Conéctate usando la IP de la sesión</strong>
                         <div class="step-inline-ip">
                             <span>${ip}</span>
                             <button type="button" id="modal-copy-ip-btn">Copiar</button>
                         </div>
                     </div>
-                </div>
+                </div>` : ""}
             `;
 
             const modalCopyBtn = document.getElementById("modal-copy-ip-btn");
-            if (modalCopyBtn) {
+            if (modalCopyBtn && ip) {
                 modalCopyBtn.addEventListener("click", () => {
                     copyText(ip, `IP "${ip}" copiada al portapapeles`);
                 });
@@ -2332,11 +2303,12 @@
 
         document.getElementById("bug-report-form").addEventListener("submit", (e) => {
             e.preventDefault();
+            if (!activeSessionData || activeSessionData.activo !== true) return;
             const nick = document.getElementById("bug-nick").value.trim();
             const cat = document.getElementById("bug-category").value;
             const area = document.getElementById("bug-area").value.trim();
             const desc = document.getElementById("bug-desc").value.trim();
-            const sessionTitle = (currentBetaData && currentBetaData.titulo) || "ZyrIsland BetaTest";
+            const sessionTitle = activeSessionData.titulo || "ZyrIsland BetaTest";
 
             const formattedReport = [
                 `### 🛠️ REPORTE DE BETATEST — ${sessionTitle}`,
@@ -2358,6 +2330,7 @@
         }
 
         async function copyText(text, successMsg, btnElement = null) {
+            if (!text) return;
             try {
                 await navigator.clipboard.writeText(text);
                 showToast(successMsg);
@@ -2375,13 +2348,16 @@
             }
         }
 
+        /* =========================================================
+           CONSULTA DE JUGADORES (SEGÚN CONFIGURACIÓN DEL JSON)
+           ========================================================= */
         async function fetchLivePlayersIfEnabled(data) {
             const srv = data.servidor || {};
             const jug = data.jugadores || {};
             if (!jug.usar_api_en_vivo || !srv.ip) {
                 return {
                     actuales: Number(jug.actuales ?? 0),
-                    maximos: Number(jug.maximos ?? 40),
+                    maximos: Number(jug.maximos ?? 0),
                     enVivo: false
                 };
             }
@@ -2393,7 +2369,7 @@
                 if (status && status.online && status.players) {
                     return {
                         actuales: status.players.online ?? 0,
-                        maximos: status.players.max ?? (jug.maximos || 40),
+                        maximos: status.players.max ?? Number(jug.maximos ?? 0),
                         enVivo: true
                     };
                 }
@@ -2401,79 +2377,45 @@
 
             return {
                 actuales: Number(jug.actuales ?? 0),
-                maximos: Number(jug.maximos ?? 40),
+                maximos: Number(jug.maximos ?? 0),
                 enVivo: false
             };
         }
 
-        function getChecklistStorageKey(titulo) {
-            return `zyrisland_qa_${(titulo || "default").toLowerCase().replace(/\s+/g, "_")}`;
-        }
-
-        function loadCheckedObjectives(titulo) {
-            try {
-                return JSON.parse(localStorage.getItem(getChecklistStorageKey(titulo)) || "[]");
-            } catch (e) {
-                return [];
-            }
-        }
-
-        function saveCheckedObjectives(titulo, indices) {
-            try {
-                localStorage.setItem(getChecklistStorageKey(titulo), JSON.stringify(indices));
-            } catch (e) {}
-        }
-
-        function renderLockedState(data) {
-            const closed = data.mensaje_cerrado || {};
-            const srv = data.servidor || {};
-            const objetivos = Array.isArray(data.objetivos_prueba) ? data.objetivos_prueba : [];
+        /* =========================================================
+           VISTA CERRADA: CERO INFORMACIÓN DE SERVIDOR O PRUEBAS
+           ========================================================= */
+        function renderLockedState(closedData) {
+            const closed = closedData || {};
             const root = document.getElementById("betatest-root");
             const drawerBadge = document.getElementById("drawer-beta-badge");
-            if (drawerBadge) drawerBadge.textContent = "CERRADO";
+            if (drawerBadge) {
+                drawerBadge.textContent = "CERRADO";
+                drawerBadge.style.background = "";
+            }
 
             document.title = "No Disponible! | ZyrAkaTV";
-
-            const ip = srv.ip || "play.zyrisland.net";
-            const version = srv.version || "Java 1.21.11";
 
             root.innerHTML = `
                 <section class="locked-wrapper spotlight-surface view-animate">
                     <div class="lock-shield"><i class="fas fa-lock"></i></div>
                     <div class="locked-pill">
                         <span class="pulse-dot-red"></span>
-                        <span>SESIÓN INACTIVA • EN ESPERA DE APERTURA</span>
+                        <span>SESIÓN INACTIVA • ACCESO CERRADO</span>
                     </div>
-                    <h1>${closed.titulo || "BETATEST CERRADO POR EL MOMENTO"}</h1>
-                    <p>${closed.descripcion || "No hay ninguna sesión de pruebas abierta en este instante. Únete a nuestro Discord para enterarte cuando abramos cupos."}</p>
+                    <h1>${closed.titulo || "NO HAY BETATEST DISPONIBLES"}</h1>
+                    <p>${closed.descripcion || "No hay ninguna sesión de pruebas abierta en este instante. Únete a Discord para enterarte cuando abramos cupos."}</p>
 
-                    <div class="standby-specs-strip">
-                        <div class="next-session-box">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Próxima apertura: <strong>${closed.proxima_fecha || "Por anunciar en Discord"}</strong></span>
-                        </div>
-                        <div class="next-session-box">
-                            <i class="fas fa-code-branch"></i>
-                            <span>Versión objetivo: <strong>${version}</strong></span>
-                        </div>
-                    </div>
-
-                    ${objetivos.length > 0 ? `
-                        <div class="upcoming-preview-box">
-                            <h2 class="upcoming-preview-title"><i class="fas fa-layer-group"></i> Mecánicas y pruebas en preparación</h2>
-                            <ul class="upcoming-preview-list">
-                                ${objetivos.map(obj => `<li><i class="fas fa-chevron-right"></i><span>${obj}</span></li>`).join("")}
-                            </ul>
-                        </div>
-                    ` : ""}
+                    ${closed.proxima_fecha ? `
+                    <div class="next-session-box">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Próxima apertura: <strong>${closed.proxima_fecha}</strong></span>
+                    </div>` : ""}
 
                     <div class="locked-actions">
                         <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="btn-discord-join btn-glow-sweep">
                             <i class="fab fa-discord"></i> Avisarme en Discord
                         </a>
-                        <button type="button" id="btn-precopy-ip" class="btn-home-outline">
-                            <i class="fas fa-copy"></i> Pre-copiar IP (${ip})
-                        </button>
                         <a href="https://zyrisland.net/" class="btn-home-outline">
                             <i class="fas fa-home"></i> Volver al Inicio
                         </a>
@@ -2482,15 +2424,11 @@
             `;
 
             bindSpotlightCards(root);
-
-            const preCopyBtn = document.getElementById("btn-precopy-ip");
-            if (preCopyBtn) {
-                preCopyBtn.addEventListener("click", () => {
-                    copyText(ip, `IP "${ip}" guardada en tu portapapeles`);
-                });
-            }
         }
 
+        /* =========================================================
+           VISTA ABIERTA: SOLO DATOS DEFINIDOS EN BETATEST.JSON
+           ========================================================= */
         function renderOpenState(data, players) {
             const root = document.getElementById("betatest-root");
             const drawerBadge = document.getElementById("drawer-beta-badge");
@@ -2501,25 +2439,23 @@
 
             const srv = data.servidor || {};
             const objetivos = Array.isArray(data.objetivos_prueba) ? data.objetivos_prueba : [];
-            const ip = srv.ip || "play.zyrisland.net";
-            const version = srv.version || "Java 1.21.11";
-            const acceso = srv.acceso || "Premium & No-Premium";
+            const ip = srv.ip || "";
+            const version = srv.version || "";
+            const acceso = srv.acceso || "";
             const modpackReq = Boolean(srv.modpack_requerido);
-            const modpackNombre = srv.modpack_nombre || (modpackReq ? "Modpack Oficial Requerido" : "Sin mods obligatorios");
-            const modpackUrl = srv.modpack_url || "https://app.zyrisland.net";
+            const modpackNombre = srv.modpack_nombre || "";
+            const modpackUrl = srv.modpack_url || "";
 
             const freeSlots = Math.max(0, players.maximos - players.actuales);
             const pct = players.maximos > 0 ? Math.min(100, Math.round((players.actuales / players.maximos) * 100)) : 0;
-            document.title = `BetaTest Abierto (${version}) | ZyrIsland`;
-
-            const checkedIndices = loadCheckedObjectives(data.titulo);
+            document.title = `${data.titulo || "BetaTest Abierto"} | ZyrAkaTV`;
 
             const discordAnnouncement = [
                 `# <:minecraft_icon:1569527632196927488> **${data.titulo || "BETATEST PÚBLICO!"}**`,
-                `- Rápido, ven y entra al **Betatest** oficial del ZyrIsland!`,
-                `- **IP:** \`${ip}\` | **Versión:** \`${version}\``,
+                `- ¡Entra ahora al **BetaTest** oficial de ZyrIsland!`,
+                ip ? `- **IP:** \`${ip}\`${version ? ` | **Versión:** \`${version}\`` : ""}` : "",
                 `<:domain_icon:1569527603814207518> **Panel del BetaTest:** https://zyrisland.net/betatest/`
-            ].join("\n");
+            ].filter(Boolean).join("\n");
 
             root.innerHTML = `
                 <div class="view-animate">
@@ -2529,17 +2465,20 @@
                                 <span class="pulse-dot-green"></span>
                                 BETATEST ABIERTO • EN VIVO
                             </span>
+                            ${acceso ? `
                             <span class="access-badge">
                                 <i class="fas fa-shield-alt"></i> ${acceso}
-                            </span>
+                            </span>` : ""}
+                            ${version ? `
                             <span class="version-pill-top">
                                 <i class="fas fa-cube"></i> ${version}
-                            </span>
+                            </span>` : ""}
                         </div>
-                        <h1>${data.titulo || "BETATEST PÚBLICO ZYRISLAND"}</h1>
-                        <p>${data.subtitulo || "Conéctate usando los datos oficiales de abajo y ayúdanos a pulir la experiencia antes del estreno."}</p>
+                        <h1>${data.titulo || "BETATEST PÚBLICO"}</h1>
+                        ${data.subtitulo ? `<p>${data.subtitulo}</p>` : ""}
                     </header>
 
+                    ${ip ? `
                     <section class="ip-hero-card spotlight-surface" aria-label="Dirección IP del servidor">
                         <div class="ip-details">
                             <span class="ip-label"><i class="fas fa-server"></i> Dirección IP Oficial del Servidor</span>
@@ -2554,9 +2493,9 @@
                                 <i class="fas fa-question-circle"></i> ¿Cómo entrar?
                             </button>
                         </div>
-                    </section>
+                    </section>` : ""}
 
-                    <section class="specs-grid" aria-label="Especificaciones técnicas">
+                    <section class="specs-grid" aria-label="Especificaciones de la sesión">
                         <article class="spec-card spotlight-surface">
                             <div class="spec-top">
                                 <div class="spec-top-left">
@@ -2565,8 +2504,8 @@
                                 </div>
                             </div>
                             <div class="spec-body">
-                                <div class="spec-main-value">${version}</div>
-                                <div class="spec-subtext">Soporte activo para <strong>${acceso}</strong></div>
+                                <div class="spec-main-value">${version || "—"}</div>
+                                ${acceso ? `<div class="spec-subtext">Acceso: <strong>${acceso}</strong></div>` : ""}
                             </div>
                         </article>
 
@@ -2595,10 +2534,10 @@
                                 </div>
                             </div>
                             <div class="spec-body">
-                                <div class="spec-main-value">${modpackReq ? "Modpack" : "Vanilla"}</div>
+                                <div class="spec-main-value">${modpackReq ? "Modpack" : "Sin Modpack"}</div>
                                 <div class="spec-subtext">
                                     ${modpackNombre}
-                                    ${modpackReq ? `<br><a href="${modpackUrl}" target="_blank" rel="noopener"><i class="fas fa-download"></i> Descargar en Events</a>` : ""}
+                                    ${modpackReq && modpackUrl ? `<br><a href="${modpackUrl}" target="_blank" rel="noopener"><i class="fas fa-download"></i> Descargar Modpack</a>` : ""}
                                 </div>
                             </div>
                         </article>
@@ -2607,22 +2546,18 @@
                     <section class="details-split">
                         <div class="objectives-card spotlight-surface">
                             <div class="card-heading-row">
-                                <h2 class="card-heading"><i class="fas fa-tasks"></i> ¿Qué estamos probando hoy?</h2>
-                                <span class="qa-progress-pill" id="qa-progress-pill">${checkedIndices.length} / ${Math.max(1, objetivos.length)} probados</span>
+                                <h2 class="card-heading"><i class="fas fa-list-ul"></i> ¿Qué estamos probando hoy?</h2>
                             </div>
-                            <p class="objectives-hint">Haz clic en cada punto para marcar lo que ya probaste durante la sesión:</p>
-                            <ul class="objectives-list" id="objectives-checklist">
+                            <ul class="objectives-list">
                                 ${objetivos.length > 0
-                                    ? objetivos.map((obj, idx) => {
-                                        const isChecked = checkedIndices.includes(idx);
-                                        return `<li data-obj-idx="${idx}" class="${isChecked ? "checked" : ""}">
-                                            <i class="fas ${isChecked ? "fa-check-square" : "fa-square"} obj-check-icon"></i>
+                                    ? objetivos.map(obj => `
+                                        <li>
+                                            <i class="fas fa-chevron-right obj-bullet-icon"></i>
                                             <span>${obj}</span>
-                                        </li>`;
-                                    }).join("")
-                                    : `<li data-obj-idx="0" class="${checkedIndices.includes(0) ? "checked" : ""}">
-                                        <i class="fas ${checkedIndices.includes(0) ? "fa-check-square" : "fa-square"} obj-check-icon"></i>
-                                        <span>Rendimiento general del servidor, fluidez de mecánicas y detección de errores.</span>
+                                        </li>`).join("")
+                                    : `<li>
+                                        <i class="fas fa-chevron-right obj-bullet-icon"></i>
+                                        <span>Pruebas generales de estabilidad y mecánicas de la sesión.</span>
                                     </li>`
                                 }
                             </ul>
@@ -2633,7 +2568,7 @@
                                 <div class="card-heading-row">
                                     <h2 class="card-heading"><i class="fab fa-discord"></i> Reportes & Comunidad</h2>
                                 </div>
-                                <p>Entra al servidor oficial de Discord para reportar cualquier fallo encontrado, enviar clips y enterarte al instante de las próximas sesiones de prueba.</p>
+                                <p>Entra al servidor oficial de Discord para reportar cualquier fallo encontrado y enterarte al instante de las próximas sesiones.</p>
                             </div>
                             <div class="discord-btns-stack">
                                 <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="btn-discord-join btn-glow-sweep">
@@ -2653,13 +2588,17 @@
 
             bindSpotlightCards(root);
 
-            document.getElementById("btn-copy-ip").addEventListener("click", function () {
-                copyText(ip, `IP "${ip}" copiada al portapapeles`, this);
-            });
+            const copyIpBtn = document.getElementById("btn-copy-ip");
+            if (copyIpBtn && ip) {
+                copyIpBtn.addEventListener("click", function () {
+                    copyText(ip, `IP "${ip}" copiada al portapapeles`, this);
+                });
+            }
 
-            document.getElementById("btn-inline-guide").addEventListener("click", () => {
-                openModal("connect-modal");
-            });
+            const inlineGuideBtn = document.getElementById("btn-inline-guide");
+            if (inlineGuideBtn) {
+                inlineGuideBtn.addEventListener("click", () => openModal("connect-modal"));
+            }
 
             document.getElementById("btn-card-bug-report").addEventListener("click", () => {
                 openModal("bug-modal");
@@ -2668,79 +2607,77 @@
             document.getElementById("btn-copy-discord").addEventListener("click", () => {
                 copyText(discordAnnouncement, "Ficha formateada lista para pegar en Discord");
             });
-
-            const checklist = document.getElementById("objectives-checklist");
-            if (checklist) {
-                checklist.querySelectorAll("li").forEach((item) => {
-                    item.addEventListener("click", () => {
-                        const idx = Number(item.dataset.objIdx);
-                        let current = loadCheckedObjectives(data.titulo);
-                        if (current.includes(idx)) {
-                            current = current.filter(i => i !== idx);
-                            item.classList.remove("checked");
-                            item.querySelector(".obj-check-icon").className = "fas fa-square obj-check-icon";
-                        } else {
-                            current.push(idx);
-                            item.classList.add("checked");
-                            item.querySelector(".obj-check-icon").className = "fas fa-check-square obj-check-icon";
-                        }
-                        saveCheckedObjectives(data.titulo, current);
-                        const total = Math.max(1, objetivos.length);
-                        const pill = document.getElementById("qa-progress-pill");
-                        if (pill) pill.textContent = `${current.length} / ${total} probados`;
-                    });
-                });
-            }
         }
 
-        function updateTelemetryClock(online = true) {
+        /* =========================================================
+           SINCRONIZACIÓN EN VIVO CON BETATEST.JSON
+           ========================================================= */
+        function updateTelemetryClock(isOpen, online = true) {
             const dot = document.getElementById("telemetry-dot");
             const statusText = document.getElementById("telemetry-status-text");
             const timeLabel = document.getElementById("last-sync-label");
             const now = new Date();
             const hhmmss = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
-            if (dot) dot.classList.toggle("offline", !online);
-            if (statusText) statusText.textContent = online ? "TELEMETRÍA EN VIVO" : "SIN CONEXIÓN";
+            if (dot) dot.classList.toggle("closed", !online || !isOpen);
+            if (statusText) {
+                if (!online) statusText.textContent = "SIN CONEXIÓN";
+                else statusText.textContent = isOpen ? "BETATEST EN VIVO" : "SIN SESIÓN ACTIVA";
+            }
             if (timeLabel) timeLabel.textContent = online ? `Actualizado: ${hhmmss}` : `Reintentando (${hhmmss})`;
         }
 
         async function syncBetaTest(isManual = false) {
             const refreshBtn = document.getElementById("manual-refresh-btn");
+            const sessionTools = document.getElementById("session-tools-group");
             if (isManual && refreshBtn) refreshBtn.classList.add("spinning");
 
             try {
                 const res = await fetch(`betatest.json?t=${Date.now()}`, { cache: "no-store" });
                 if (!res.ok) throw new Error("No se pudo cargar betatest.json");
                 const data = await res.json();
-                currentBetaData = data;
-                const players = data.activo ? await fetchLivePlayersIfEnabled(data) : null;
+                const isOpen = Boolean(data && data.activo === true);
 
-                updateTelemetryClock(true);
+                updateTelemetryClock(isOpen, true);
 
-                const currentSnapshot = JSON.stringify({ data, players });
-                if (currentSnapshot === lastSnapshot) {
-                    if (isManual) showToast("Estado ya actualizado");
-                    return;
-                }
-                lastSnapshot = currentSnapshot;
+                if (!isOpen) {
+                    activeSessionData = null;
+                    if (sessionTools) sessionTools.style.display = "none";
+                    closeAllModals();
 
-                if (data.activo === true) {
-                    renderOpenState(data, players);
+                    const closedPayload = (data && data.mensaje_cerrado) || {};
+                    const currentSnapshot = JSON.stringify({ activo: false, closedPayload });
+                    if (currentSnapshot === lastSnapshot) {
+                        if (isManual) showToast("Estado ya actualizado");
+                        return;
+                    }
+                    lastSnapshot = currentSnapshot;
+                    renderLockedState(closedPayload);
                 } else {
-                    renderLockedState(data);
+                    activeSessionData = data;
+                    if (sessionTools) sessionTools.style.display = "flex";
+                    const players = await fetchLivePlayersIfEnabled(data);
+
+                    const currentSnapshot = JSON.stringify({ data, players });
+                    if (currentSnapshot === lastSnapshot) {
+                        if (isManual) showToast("Estado ya actualizado");
+                        return;
+                    }
+                    lastSnapshot = currentSnapshot;
+                    renderOpenState(data, players);
                 }
 
                 if (isManual) showToast("Estado sincronizado correctamente");
             } catch (err) {
-                updateTelemetryClock(false);
+                activeSessionData = null;
+                if (sessionTools) sessionTools.style.display = "none";
+                closeAllModals();
+                updateTelemetryClock(false, false);
+
                 if (!lastSnapshot) {
                     renderLockedState({
-                        mensaje_cerrado: {
-                            titulo: "BETATEST NO DISPONIBLE",
-                            descripcion: "No fue posible verificar el estado de la sesión en este momento. Consulta los anuncios en nuestro Discord oficial.",
-                            proxima_fecha: "Verificar en Discord"
-                        }
+                        titulo: "NO HAY BETATEST DISPONIBLES",
+                        descripcion: "No fue posible verificar el estado de la sesión en este momento. Consulta los anuncios en nuestro Discord oficial."
                     });
                 }
             } finally {
