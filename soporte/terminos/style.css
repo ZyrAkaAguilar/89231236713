@@ -909,9 +909,6 @@ body {
 .footer-socials a { color: #888; font-size: 1.2rem; transition: color 0.3s; }
 .footer-socials a:hover { color: #fff; }
 
-/* =========================================================
-   ACCESIBILIDAD & RESPONSIVE DESIGN (MÓVIL & TABLET)
-   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
