@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <title>ZyrAkaTV™ | Creación Eventos</title>
     <meta name="description" content="Portafolio oficial de ZyrAkaTV™ y ZyrIsland. Creamos eventos en vivo de Minecraft, minijuegos caóticos personalizados, mecánicas a medida y experiencias interactivas para la comunidad.">
@@ -60,7 +60,7 @@
         <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
     </div>
 
-    <nav class="navbar" aria-label="Navegación principal">
+    <nav class="navbar" id="navbar" aria-label="Navegación principal">
         <div class="nav-left">
             <a href="https://zyrisland.net/" class="nav-link active">Inicio</a>
             <a href="https://zyrisland.net/blog/" class="nav-link">Blog</a>
@@ -81,7 +81,52 @@
             <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" class="social-icon" aria-label="Canal de YouTube de ZyrAkaTV"><i class="fab fa-youtube"></i></a>
             <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="social-icon" aria-label="Servidor de Discord de ZyrIsland"><i class="fab fa-discord"></i></a>
         </div>
+
+        <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Abrir menú de navegación">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
     </nav>
+
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+    <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menú móvil" aria-hidden="true">
+        <div class="mobile-drawer-header">
+            <span class="mobile-drawer-label"><span class="kicker-pulse-dot"></span> MENÚ ZYRISLAND</span>
+            <button type="button" class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Cerrar menú">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="mobile-drawer-group">
+            <span class="mobile-group-title">Navegación</span>
+            <a href="https://zyrisland.net/" class="mobile-nav-item active"><i class="fas fa-home"></i> Inicio</a>
+            <a href="https://zyrisland.net/blog/" class="mobile-nav-item"><i class="fas fa-newspaper"></i> Blog & Devlogs</a>
+            <a href="https://zyrisland.net/soporte/terminos" class="mobile-nav-item"><i class="fas fa-file-contract"></i> Términos y Condiciones</a>
+            <a href="https://zyrisland.net/soporte/reglas" class="mobile-nav-item"><i class="fas fa-shield-alt"></i> Política de Privacidad</a>
+        </div>
+
+        <div class="mobile-drawer-group">
+            <span class="mobile-group-title">En esta página</span>
+            <div class="mobile-quick-pills">
+                <a href="#estudio" class="mobile-pill-link">Identidad</a>
+                <a href="#proyectos" class="mobile-pill-link">Portafolio</a>
+                <a href="#minijuegos" class="mobile-pill-link">Minijuegos</a>
+                <a href="#noticias" class="mobile-pill-link">Equipo</a>
+            </div>
+        </div>
+
+        <div class="mobile-drawer-actions">
+            <a href="https://app.zyrisland.net" class="btn-primary mobile-drawer-cta">
+                <i class="fas fa-play"></i> Cliente de Eventos
+            </a>
+            <div class="mobile-drawer-socials">
+                <a href="https://www.instagram.com/cynakaagl/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </aside>
 
     <header id="inicio" class="hero-section">
         <div class="hero-bg-zoom" aria-hidden="true"></div>
@@ -142,7 +187,10 @@
 
     <main>
         <section id="estudio" class="about-section">
+            <div class="section-bg-media about-bg-media" aria-hidden="true"></div>
+            <div class="section-bg-overlay" aria-hidden="true"></div>
             <div class="ambient-orb orb-red-left" aria-hidden="true"></div>
+
             <div class="section-container split-layout">
                 <div class="about-text reveal-item" data-reveal="left">
                     <span class="section-tag">NUESTRA IDENTIDAD</span>
@@ -158,28 +206,39 @@
                     <a href="https://zyrisland.net/blog/" class="inline-cta">Explorar nuestros devlogs y noticias <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <div class="about-cards-stack">
-                    <article class="pillar-card spotlight-surface tilt-card reveal-item" data-reveal="right" style="--stagger: 0.05s;">
-                        <div class="pillar-icon"><i class="fas fa-gamepad"></i></div>
-                        <div>
-                            <h3>Game Design</h3>
-                            <p>Sistemas competitivos equilibrados, perfectamente pensados para que sea justo</p>
-                        </div>
-                    </article>
-                    <article class="pillar-card spotlight-surface tilt-card reveal-item" data-reveal="right" style="--stagger: 0.16s;">
-                        <div class="pillar-icon"><i class="fas fa-cubes"></i></div>
-                        <div>
-                            <h3>Arte 3D, UI & Sonido</h3>
-                            <p>Interfaces limpisimas dentro del juego, texturas exclusivas y ambientacion sonora.</p>
-                        </div>
-                    </article>
-                    <article class="pillar-card spotlight-surface tilt-card reveal-item" data-reveal="right" style="--stagger: 0.27s;">
-                        <div class="pillar-icon"><i class="fas fa-server"></i></div>
-                        <div>
-                            <h3>ZyrIsland Staff Team</h3>
-                            <p>Queremos que el equipo sea funcional, por lo que nos aseguramos de que cada miembro del staff sea responable y bueno en su area</p>
-                        </div>
-                    </article>
+                <div class="about-right-column">
+                    <figure class="studio-showcase-frame spotlight-surface reveal-item" data-reveal="right">
+                        <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Escenario y producción visual de ZyrIsland" loading="lazy">
+                        <div class="studio-frame-gradient"></div>
+                        <figcaption class="studio-frame-caption">
+                            <span class="frame-badge"><i class="fas fa-camera"></i> ARTE OFFICIAL</span>
+                            <span><i class="fas fa-lock"></i></span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="about-cards-stack">
+                        <article class="pillar-card spotlight-surface tilt-card reveal-item" data-reveal="right" style="--stagger: 0.05s;">
+                            <div class="pillar-icon"><i class="fas fa-gamepad"></i></div>
+                            <div>
+                                <h3>Game Design</h3>
+                                <p>Sistemas competitivos equilibrados, perfectamente pensados para que sea justo</p>
+                            </div>
+                        </article>
+                        <article class="pillar-card spotlight-surface tilt-card reveal-item" data-reveal="right" style="--stagger: 0.16s;">
+                            <div class="pillar-icon"><i class="fas fa-cubes"></i></div>
+                            <div>
+                                <h3>Arte 3D, UI & Sonido</h3>
+                                <p>Interfaces limpisimas dentro del juego, texturas exclusivas y ambientacion sonora.</p>
+                            </div>
+                        </article>
+                        <article class="pillar-card spotlight-surface tilt-card reveal-item" data-reveal="right" style="--stagger: 0.27s;">
+                            <div class="pillar-icon"><i class="fas fa-server"></i></div>
+                            <div>
+                                <h3>ZyrIsland Staff Team</h3>
+                                <p>Queremos que el equipo sea funcional, por lo que nos aseguramos de que cada miembro del staff sea responable y bueno en su area</p>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -198,8 +257,10 @@
                     </div>
 
                     <article class="slide active">
-                        <div class="slide-bg" style="background-image: url('https://app.zyrisland.net/assets/backgrounds/render_003.png');"></div>
-                        <div class="slide-vignette"></div>
+                        <div class="slide-media-box">
+                            <div class="slide-bg" style="background-image: url('https://app.zyrisland.net/assets/backgrounds/render_003.png');"></div>
+                            <div class="slide-vignette"></div>
+                        </div>
                         <div class="slide-info">
                             <span class="slide-tag">ZYRISLAND MINIGAMES ~ IN-GAME</span>
                             <h3>Creacion de Mapas/Datapacks/Resourcepacks</h3>
@@ -208,8 +269,10 @@
                     </article>
 
                     <article class="slide">
-                        <div class="slide-bg" style="background-image: url('https://app.zyrisland.net/assets/backgrounds/render_002.png');"></div>
-                        <div class="slide-vignette"></div>
+                        <div class="slide-media-box">
+                            <div class="slide-bg" style="background-image: url('https://app.zyrisland.net/assets/backgrounds/render_002.png');"></div>
+                            <div class="slide-vignette"></div>
+                        </div>
                         <div class="slide-info">
                             <span class="slide-tag">AVATHECAT ~ ARTIST</span>
                             <h3>Estetica & Arte unico!</h3>
@@ -218,8 +281,10 @@
                     </article>
 
                     <article class="slide">
-                        <div class="slide-bg" style="background-image: url('https://app.zyrisland.net/assets/backgrounds/render_001.png');"></div>
-                        <div class="slide-vignette"></div>
+                        <div class="slide-media-box">
+                            <div class="slide-bg" style="background-image: url('https://app.zyrisland.net/assets/backgrounds/render_001.png');"></div>
+                            <div class="slide-vignette"></div>
+                        </div>
                         <div class="slide-info">
                             <span class="slide-tag">ZYRAKATV™ ~ RENDER OFFICIAL</span>
                             <h3>Edicion & Produccion de videos!</h3>
@@ -232,11 +297,38 @@
 
                     <div class="slider-dots" id="slider-dots" aria-label="Seleccionar diapositiva"></div>
                 </div>
+
+                <div class="showcase-thumbs-grid reveal-item" data-reveal="up" aria-label="Vistas previas del portafolio">
+                    <button type="button" class="showcase-thumb-card active" data-slide-index="0">
+                        <img src="https://app.zyrisland.net/assets/backgrounds/render_003.png" alt="Miniatura Mapas y Resourcepacks" loading="lazy">
+                        <div class="thumb-overlay">
+                            <span class="thumb-num">01</span>
+                            <span class="thumb-label">Mapas & Resourcepacks</span>
+                        </div>
+                    </button>
+                    <button type="button" class="showcase-thumb-card" data-slide-index="1">
+                        <img src="https://app.zyrisland.net/assets/backgrounds/render_002.png" alt="Miniatura Estética y Arte" loading="lazy">
+                        <div class="thumb-overlay">
+                            <span class="thumb-num">02</span>
+                            <span class="thumb-label">Estética & Arte 3D</span>
+                        </div>
+                    </button>
+                    <button type="button" class="showcase-thumb-card" data-slide-index="2">
+                        <img src="https://app.zyrisland.net/assets/backgrounds/render_001.png" alt="Miniatura Edición y Producción" loading="lazy">
+                        <div class="thumb-overlay">
+                            <span class="thumb-num">03</span>
+                            <span class="thumb-label">Producción & Renders</span>
+                        </div>
+                    </button>
+                </div>
             </div>
         </section>
 
         <section id="minijuegos" class="minigames-section">
+            <div class="section-bg-media minigames-bg-media" aria-hidden="true"></div>
+            <div class="section-bg-overlay" aria-hidden="true"></div>
             <div class="ambient-orb orb-red-right" aria-hidden="true"></div>
+
             <div class="section-container">
                 <div class="section-header-center reveal-item" data-reveal="up">
                     <span class="section-tag">MODOS DE JUEGO</span>
@@ -247,7 +339,7 @@
                 <div class="minigames-grid">
                     <article class="minigame-card spotlight-surface tilt-card reveal-item" data-reveal="up" style="--stagger: 0.04s;">
                         <div class="minigame-img-container">
-                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego Arena Caótica en ZyrIsland" loading="lazy">
+                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego 01 en ZyrIsland" loading="lazy">
                             <div class="holo-scanline" aria-hidden="true"></div>
                             <span class="minigame-badge"><i class="fas fa-lock"></i> LOCKED</span>
                         </div>
@@ -257,7 +349,7 @@
 
                     <article class="minigame-card spotlight-surface tilt-card reveal-item" data-reveal="up" style="--stagger: 0.1s;">
                         <div class="minigame-img-container">
-                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego Arena Caótica en ZyrIsland" loading="lazy">
+                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego 02 en ZyrIsland" loading="lazy">
                             <div class="holo-scanline" aria-hidden="true"></div>
                             <span class="minigame-badge"><i class="fas fa-lock"></i> LOCKED</span>
                         </div>
@@ -267,7 +359,7 @@
 
                     <article class="minigame-card spotlight-surface tilt-card reveal-item" data-reveal="up" style="--stagger: 0.16s;">
                         <div class="minigame-img-container">
-                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego Arena Caótica en ZyrIsland" loading="lazy">
+                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego 03 en ZyrIsland" loading="lazy">
                             <div class="holo-scanline" aria-hidden="true"></div>
                             <span class="minigame-badge"><i class="fas fa-lock"></i> LOCKED</span>
                         </div>
@@ -277,7 +369,7 @@
 
                     <article class="minigame-card spotlight-surface tilt-card reveal-item" data-reveal="up" style="--stagger: 0.22s;">
                         <div class="minigame-img-container">
-                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego Arena Caótica en ZyrIsland" loading="lazy">
+                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego 04 en ZyrIsland" loading="lazy">
                             <div class="holo-scanline" aria-hidden="true"></div>
                             <span class="minigame-badge"><i class="fas fa-lock"></i> LOCKED</span>
                         </div>
@@ -287,7 +379,7 @@
 
                     <article class="minigame-card spotlight-surface tilt-card reveal-item" data-reveal="up" style="--stagger: 0.28s;">
                         <div class="minigame-img-container">
-                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego Arena Caótica en ZyrIsland" loading="lazy">
+                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego 05 en ZyrIsland" loading="lazy">
                             <div class="holo-scanline" aria-hidden="true"></div>
                             <span class="minigame-badge"><i class="fas fa-lock"></i> LOCKED</span>
                         </div>
@@ -297,7 +389,7 @@
 
                     <article class="minigame-card spotlight-surface tilt-card reveal-item" data-reveal="up" style="--stagger: 0.34s;">
                         <div class="minigame-img-container">
-                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego Arena Caótica en ZyrIsland" loading="lazy">
+                            <img src="https://app.zyrisland.net/assets/backgrounds/null_background.jpg" alt="Minijuego 06 en ZyrIsland" loading="lazy">
                             <div class="holo-scanline" aria-hidden="true"></div>
                             <span class="minigame-badge"><i class="fas fa-lock"></i> LOCKED</span>
                         </div>
@@ -326,6 +418,8 @@
 
         <section class="cta-banner-section">
             <div class="cta-banner-box spotlight-surface reveal-item" data-reveal="scale">
+                <div class="cta-bg-image" aria-hidden="true"></div>
+                <div class="cta-bg-overlay" aria-hidden="true"></div>
                 <div class="cta-grid-bg" aria-hidden="true"></div>
                 <div class="cta-content-inner">
                     <h2>¿LISTO PARA FORMAR PARTE DE <span class="highlight">ZYRISLAND</span>?</h2>
@@ -342,6 +436,10 @@
             </div>
         </section>
     </main>
+
+    <button type="button" id="back-to-top-btn" class="back-to-top-btn" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <footer class="site-footer">
         <div class="footer-top">
@@ -373,22 +471,77 @@
         <div class="footer-bottom">
             <div>ZyrAkaTV™ 2026.<span class="red-text"> Marca comercial.</span></div>
             <div class="footer-socials">
-                <a href="https://www.instagram.com/cynakaagl/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://paypal.me/zyrakaaguilar" target="_blank"><i class="fab fa-paypal"></i></a>
-                <a href="https://discord.gg/DVBdqXgsGu" target="_blank"><i class="fab fa-discord"></i></a>
-                <a href="https://www.youtube.com/@cynakaagl" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/cynakaagl/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://paypal.me/zyrakaaguilar" target="_blank" rel="noopener" aria-label="PayPal"><i class="fab fa-paypal"></i></a>
+                <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>
 
     <script>
         const scrollProgressBar = document.getElementById("scroll-progress-bar");
+        const backToTopBtn = document.getElementById("back-to-top-btn");
+
         window.addEventListener("scroll", () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
             if (scrollProgressBar) scrollProgressBar.style.width = `${pct}%`;
+            if (backToTopBtn) backToTopBtn.classList.toggle("visible", scrollTop > 480);
         }, { passive: true });
+
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
+
+        const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+        const mobileDrawerClose = document.getElementById("mobile-drawer-close");
+        const mobileNavDrawer = document.getElementById("mobile-nav-drawer");
+        const mobileNavBackdrop = document.getElementById("mobile-nav-backdrop");
+
+        function setMobileMenuOpen(isOpen) {
+            if (!mobileMenuToggle || !mobileNavDrawer || !mobileNavBackdrop) return;
+            mobileMenuToggle.classList.toggle("is-open", isOpen);
+            mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+            mobileNavDrawer.classList.toggle("is-open", isOpen);
+            mobileNavDrawer.setAttribute("aria-hidden", String(!isOpen));
+            mobileNavBackdrop.classList.toggle("is-open", isOpen);
+            document.body.classList.toggle("menu-open", isOpen);
+        }
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener("click", () => {
+                const currentlyOpen = mobileNavDrawer.classList.contains("is-open");
+                setMobileMenuOpen(!currentlyOpen);
+            });
+        }
+
+        if (mobileDrawerClose) {
+            mobileDrawerClose.addEventListener("click", () => setMobileMenuOpen(false));
+        }
+
+        if (mobileNavBackdrop) {
+            mobileNavBackdrop.addEventListener("click", () => setMobileMenuOpen(false));
+        }
+
+        document.querySelectorAll(".mobile-nav-item, .mobile-pill-link").forEach((link) => {
+            link.addEventListener("click", () => setMobileMenuOpen(false));
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && mobileNavDrawer && mobileNavDrawer.classList.contains("is-open")) {
+                setMobileMenuOpen(false);
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 960 && mobileNavDrawer && mobileNavDrawer.classList.contains("is-open")) {
+                setMobileMenuOpen(false);
+            }
+        });
 
         (function initHeroParticles() {
             const canvas = document.getElementById("hero-particles");
@@ -409,7 +562,7 @@
                 mouse.y = e.clientY - rect.top;
             }, { passive: true });
 
-            const count = Math.min(48, Math.floor(width / 28));
+            const count = Math.min(44, Math.floor(width / 28));
             const particles = Array.from({ length: count }, () => ({
                 x: Math.random() * width,
                 y: Math.random() * height,
@@ -472,7 +625,7 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.14, rootMargin: "0px 0px -40px 0px" });
+        }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
 
         function bindRevealElements(root = document) {
             root.querySelectorAll(".reveal-item").forEach((el) => revealObserver.observe(el));
@@ -480,7 +633,9 @@
         bindRevealElements();
 
         function bindInteractiveCards(root = document) {
+            const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
             root.querySelectorAll(".spotlight-surface").forEach((card) => {
+                if (!supportsHover) return;
                 card.addEventListener("mousemove", (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
@@ -505,6 +660,7 @@
         bindInteractiveCards();
 
         const slides = document.querySelectorAll(".slide");
+        const thumbCards = document.querySelectorAll(".showcase-thumb-card");
         const prevBtn = document.querySelector(".prev-btn");
         const nextBtn = document.querySelector(".next-btn");
         const sliderEl = document.getElementById("showcase-slider");
@@ -528,6 +684,14 @@
             });
         }
 
+        thumbCards.forEach((thumb) => {
+            thumb.addEventListener("click", () => {
+                const idx = parseInt(thumb.dataset.slideIndex || "0", 10);
+                showSlide(idx);
+                resetTimer();
+            });
+        });
+
         function restartProgressBar() {
             if (!progressFill) return;
             progressFill.style.transition = "none";
@@ -543,6 +707,9 @@
             });
             document.querySelectorAll(".slider-dot").forEach((d, i) => {
                 d.classList.toggle("active", i === index);
+            });
+            thumbCards.forEach((t, i) => {
+                t.classList.toggle("active", i === index);
             });
             currentSlide = index;
             restartProgressBar();
@@ -579,6 +746,22 @@
                 resetTimer();
             });
 
+            let touchStartX = 0;
+            let touchEndX = 0;
+            sliderEl.addEventListener("touchstart", (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            sliderEl.addEventListener("touchend", (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 45) {
+                    if (diff > 0) nextSlide();
+                    else prevSlide();
+                    resetTimer();
+                }
+            }, { passive: true });
+
             document.addEventListener("keydown", (e) => {
                 if (e.key === "ArrowRight") { nextSlide(); resetTimer(); }
                 if (e.key === "ArrowLeft") { prevSlide(); resetTimer(); }
@@ -609,13 +792,23 @@
 
         function renderNewsCards(items) {
             const grid = document.getElementById("news-grid");
-            grid.innerHTML = items.slice(0, 6).map((item, idx) => `
+            grid.innerHTML = items.slice(0, 6).map((item, idx) => {
+                const imgUrl = item.imagen || item.image || "";
+                const mediaHtml = imgUrl
+                    ? `<div class="news-card-media"><img src="${imgUrl}" alt="${item.titulo || item.title || "Noticia ZyrIsland"}" loading="lazy"></div>`
+                    : `<div class="news-card-accent-strip" aria-hidden="true"></div>`;
+
+                return `
                 <article class="news-card spotlight-surface tilt-card reveal-item" data-reveal="up" style="--stagger: ${idx * 0.08}s;">
-                    <span class="news-date">${item.fecha || item.date || "ZYRISLAND"}</span>
-                    <h3 class="news-title">${item.titulo || item.title || "Actualización"}</h3>
-                    <p class="news-desc">${item.descripcion || item.description || ""}</p>
+                    ${mediaHtml}
+                    <div class="news-card-body">
+                        <span class="news-date">${item.fecha || item.date || "ZYRISLAND"}</span>
+                        <h3 class="news-title">${item.titulo || item.title || "Actualización"}</h3>
+                        <p class="news-desc">${item.descripcion || item.description || ""}</p>
+                    </div>
                 </article>
-            `).join("");
+                `;
+            }).join("");
 
             bindRevealElements(grid);
             bindInteractiveCards(grid);
