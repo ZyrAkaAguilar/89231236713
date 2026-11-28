@@ -21,7 +21,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ZyrAkaTV™ | ZyrIsland">
-    <meta name="twitter:description" content="Estudio creativo detrás de ZyrIsland Minigames, SMP Island y eventos interactivos.">
+    <meta name="twitter:description" content="Estudio creador de eventos en vivo, servidores personalizados y minijuegos competitivos en Minecraft.">
     <meta name="twitter:image" content="https://app.zyrisland.net/assets/icons/zyrakatv-ico.png">
 
     <script type="application/ld+json">
@@ -82,7 +82,7 @@
             <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="social-icon" aria-label="Servidor de Discord de ZyrIsland"><i class="fab fa-discord"></i></a>
         </div>
 
-        <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Abrir menú de navegación">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-nav-drawer">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -91,39 +91,30 @@
 
     <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
     <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menú móvil" aria-hidden="true">
-        <div class="mobile-drawer-header">
-            <span class="mobile-drawer-label"><span class="kicker-pulse-dot"></span> MENÚ ZYRISLAND</span>
-            <button type="button" class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Cerrar menú">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <div class="mobile-drawer-group">
-            <span class="mobile-group-title">Navegación</span>
-            <a href="https://zyrisland.net/" class="mobile-nav-item active"><i class="fas fa-home"></i> Inicio</a>
-            <a href="https://zyrisland.net/blog/" class="mobile-nav-item"><i class="fas fa-newspaper"></i> Blog & Devlogs</a>
-            <a href="https://zyrisland.net/soporte/terminos" class="mobile-nav-item"><i class="fas fa-file-contract"></i> Términos y Condiciones</a>
-            <a href="https://zyrisland.net/soporte/reglas" class="mobile-nav-item"><i class="fas fa-shield-alt"></i> Política de Privacidad</a>
-        </div>
-
-        <div class="mobile-drawer-group">
-            <span class="mobile-group-title">En esta página</span>
-            <div class="mobile-quick-pills">
-                <a href="#estudio" class="mobile-pill-link">Identidad</a>
-                <a href="#proyectos" class="mobile-pill-link">Portafolio</a>
-                <a href="#minijuegos" class="mobile-pill-link">Minijuegos</a>
-                <a href="#noticias" class="mobile-pill-link">Equipo</a>
-            </div>
-        </div>
-
-        <div class="mobile-drawer-actions">
-            <a href="https://app.zyrisland.net" class="btn-primary mobile-drawer-cta">
-                <i class="fas fa-play"></i> Cliente de Eventos
+        <div class="mobile-nav-links">
+            <a href="https://zyrisland.net/" class="mobile-nav-link active">
+                <span><i class="fas fa-home"></i> Inicio</span>
+                <span class="mobile-active-pill">ACTUAL</span>
             </a>
-            <div class="mobile-drawer-socials">
-                <a href="https://www.instagram.com/cynakaagl/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://zyrisland.net/blog/" class="mobile-nav-link">
+                <span><i class="fas fa-newspaper"></i> Blog</span>
+                <i class="fas fa-chevron-right mobile-nav-arrow"></i>
+            </a>
+            <a href="https://zyrisland.net/soporte/terminos" class="mobile-nav-link">
+                <span><i class="fas fa-file-contract"></i> Terminos</span>
+                <i class="fas fa-chevron-right mobile-nav-arrow"></i>
+            </a>
+            <a href="https://zyrisland.net/soporte/reglas" class="mobile-nav-link">
+                <span><i class="fas fa-shield-alt"></i> Privacidad</span>
+                <i class="fas fa-chevron-right mobile-nav-arrow"></i>
+            </a>
+        </div>
+        <div class="mobile-nav-footer">
+            <span class="mobile-nav-socials-label">Comunidad Oficial</span>
+            <div class="mobile-nav-socials">
+                <a href="https://www.instagram.com/cynakaagl/" target="_blank" rel="noopener" class="mobile-social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" class="mobile-social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="mobile-social-btn" aria-label="Discord"><i class="fab fa-discord"></i></a>
             </div>
         </div>
     </aside>
@@ -444,10 +435,11 @@
     <footer class="site-footer">
         <div class="footer-top">
             <div class="footer-brand-area">
-                <img src="https://app.zyrisland.net/assets/icons/zyrakatv-ico.png" alt="Logo">
+                <img src="https://app.zyrisland.net/assets/icons/zyrakatv-ico.png" alt="Logo ZyrAkaTV">
                 <h2>ZyrAkaTV<sup style="font-size: 0.6em;">™</sup></h2>
             </div>
-             <div class="footer-links-grid">
+            
+            <div class="footer-links-grid">
                 <div class="footer-column">
                     <h4>STUDIO</h4>
                     <a href="https://zyrisland.net/#estudio" target="_blank">About</a>
@@ -468,6 +460,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="footer-bottom">
             <div>ZyrAkaTV™ 2026.<span class="red-text"> Marca comercial.</span></div>
             <div class="footer-socials">
@@ -480,6 +473,46 @@
     </footer>
 
     <script>
+        const navToggle = document.getElementById("nav-toggle");
+        const mobileDrawer = document.getElementById("mobile-nav-drawer");
+        const mobileBackdrop = document.getElementById("mobile-nav-backdrop");
+
+        function setMobileMenuOpen(open) {
+            if (!navToggle || !mobileDrawer || !mobileBackdrop) return;
+            navToggle.classList.toggle("is-open", open);
+            navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+            navToggle.setAttribute("aria-label", open ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+            mobileDrawer.classList.toggle("is-open", open);
+            mobileDrawer.setAttribute("aria-hidden", open ? "false" : "true");
+            mobileBackdrop.classList.toggle("is-open", open);
+            document.body.style.overflow = open ? "hidden" : "";
+        }
+
+        if (navToggle && mobileDrawer && mobileBackdrop) {
+            navToggle.addEventListener("click", () => {
+                const isOpen = navToggle.classList.contains("is-open");
+                setMobileMenuOpen(!isOpen);
+            });
+
+            mobileBackdrop.addEventListener("click", () => setMobileMenuOpen(false));
+
+            mobileDrawer.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => setMobileMenuOpen(false));
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && navToggle.classList.contains("is-open")) {
+                    setMobileMenuOpen(false);
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 960 && navToggle.classList.contains("is-open")) {
+                    setMobileMenuOpen(false);
+                }
+            }, { passive: true });
+        }
+
         const scrollProgressBar = document.getElementById("scroll-progress-bar");
         const backToTopBtn = document.getElementById("back-to-top-btn");
 
@@ -497,52 +530,6 @@
             });
         }
 
-        const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-        const mobileDrawerClose = document.getElementById("mobile-drawer-close");
-        const mobileNavDrawer = document.getElementById("mobile-nav-drawer");
-        const mobileNavBackdrop = document.getElementById("mobile-nav-backdrop");
-
-        function setMobileMenuOpen(isOpen) {
-            if (!mobileMenuToggle || !mobileNavDrawer || !mobileNavBackdrop) return;
-            mobileMenuToggle.classList.toggle("is-open", isOpen);
-            mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
-            mobileNavDrawer.classList.toggle("is-open", isOpen);
-            mobileNavDrawer.setAttribute("aria-hidden", String(!isOpen));
-            mobileNavBackdrop.classList.toggle("is-open", isOpen);
-            document.body.classList.toggle("menu-open", isOpen);
-        }
-
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener("click", () => {
-                const currentlyOpen = mobileNavDrawer.classList.contains("is-open");
-                setMobileMenuOpen(!currentlyOpen);
-            });
-        }
-
-        if (mobileDrawerClose) {
-            mobileDrawerClose.addEventListener("click", () => setMobileMenuOpen(false));
-        }
-
-        if (mobileNavBackdrop) {
-            mobileNavBackdrop.addEventListener("click", () => setMobileMenuOpen(false));
-        }
-
-        document.querySelectorAll(".mobile-nav-item, .mobile-pill-link").forEach((link) => {
-            link.addEventListener("click", () => setMobileMenuOpen(false));
-        });
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && mobileNavDrawer && mobileNavDrawer.classList.contains("is-open")) {
-                setMobileMenuOpen(false);
-            }
-        });
-
-        window.addEventListener("resize", () => {
-            if (window.innerWidth > 960 && mobileNavDrawer && mobileNavDrawer.classList.contains("is-open")) {
-                setMobileMenuOpen(false);
-            }
-        });
-
         (function initHeroParticles() {
             const canvas = document.getElementById("hero-particles");
             if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -554,7 +541,7 @@
             window.addEventListener("resize", () => {
                 width = canvas.width = canvas.offsetWidth;
                 height = canvas.height = canvas.offsetHeight;
-            });
+            }, { passive: true });
 
             window.addEventListener("mousemove", (e) => {
                 const rect = canvas.getBoundingClientRect();
@@ -618,6 +605,9 @@
             setTimeout(() => requestAnimationFrame(step), 550);
         });
 
+        /* =========================================================
+           4. REVELADO AL HACER SCROLL & SPOTLIGHT / TILT 3D
+           ========================================================= */
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
