@@ -19,9 +19,6 @@
     <link rel="manifest" href="../favicon/site.webmanifest" />
 </head>
 <body>
-    <!-- =========================================================
-         BARRA DE NAVEGACIÓN (Desktop 3 columnas + Mobile Compacta)
-         ========================================================= -->
     <nav class="navbar" id="navbar" aria-label="Navegación principal">
         <div class="nav-left">
             <a href="https://zyrisland.net" class="nav-link">Inicio</a>
@@ -44,7 +41,6 @@
             <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="social-icon" aria-label="Servidor de Discord de ZyrIsland"><i class="fab fa-discord"></i></a>
         </div>
 
-        <!-- Botón táctil para menú en teléfonos -->
         <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Abrir menú de navegación">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -52,7 +48,6 @@
         </button>
     </nav>
 
-    <!-- Cajón de navegación móvil -->
     <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
     <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menú móvil" aria-hidden="true">
         <div class="mobile-drawer-header">
@@ -94,9 +89,6 @@
 
     <div id="reading-progress" class="reading-progress-bar"></div>
 
-    <!-- =========================================================
-         HERO DEL ARTÍCULO CON FONDO DINÁMICO DE SU PORTADA
-         ========================================================= -->
     <header class="post-hero">
         <div class="post-hero-bg-media" id="post-hero-bg" aria-hidden="true"></div>
         <div class="post-hero-bg-overlay" aria-hidden="true"></div>
@@ -149,7 +141,6 @@
 
         <article class="article-body" id="post-content"></article>
 
-        <!-- Banner de comunidad con imagen de fondo al final de la lectura -->
         <section class="post-bottom-cta-wrap">
             <div class="blog-cta-banner spotlight-surface reveal-item" data-reveal="scale">
                 <div class="cta-bg-image post-cta-bg" aria-hidden="true"></div>
@@ -222,9 +213,6 @@
     </footer>
 
     <script>
-        /* =========================================================
-           1. MENÚ MÓVIL TÁCTIL
-           ========================================================= */
         const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
         const mobileDrawerClose = document.getElementById("mobile-drawer-close");
         const mobileNavDrawer = document.getElementById("mobile-nav-drawer");
@@ -264,9 +252,6 @@
             }
         });
 
-        /* =========================================================
-           2. PARTÍCULAS INTERACTIVAS EN POST HERO (60 FPS)
-           ========================================================= */
         (function initPostParticles() {
             const canvas = document.getElementById("post-particles");
             if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -325,9 +310,6 @@
             animate();
         })();
 
-        /* =========================================================
-           3. REVELADO AL HACER SCROLL + SPOTLIGHT & TILT 3D
-           ========================================================= */
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -370,9 +352,6 @@
         bindRevealElements();
         bindInteractiveCards();
 
-        /* =========================================================
-           4. PARSER MARKDOWN ENRIQUECIDO
-           ========================================================= */
         function escapeHtml(str) {
             return str
                 .replace(/&/g, "&amp;")
@@ -506,7 +485,6 @@
                 }
 
                 if (blog.imagen) {
-                    // Ambienta dinámicamente el fondo del Hero del artículo con su propia imagen
                     const postHeroBg = document.getElementById("post-hero-bg");
                     if (postHeroBg) {
                         postHeroBg.style.backgroundImage = `url('${blog.imagen}')`;
