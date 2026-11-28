@@ -1,7 +1,8 @@
 {
   "configuracion": {
     "tituloPortal": "BLOGS DEL **ZYRISLAND**",
-    "subtituloPortal": "Anuncios oficiales, **devlogs** de nuestros servidores, parches del servidor y nuevos videos."
+    "subtituloPortal": "Anuncios oficiales, **devlogs** de nuestros servidores, parches del servidor y nuevos videos.",
+    "imagenFondoPortal": "https://app.zyrisland.net/assets/backgrounds/render_002.png"
   },
   "blogs": [
     {
@@ -16,7 +17,12 @@
       "imagen": "https://app.zyrisland.net/assets/backgrounds/noticia-001.jpg",
       "titulo": "En Desarrollo: **ZyrIsland Minigames**",
       "resumen": "Todo lo que hay que saber del gran desarrollo del ZyrIsland.",
-      "etiquetas": ["minecraft", "evento", "zyrisland", "desarrollo"],
+      "etiquetas": [
+        "minecraft",
+        "evento",
+        "zyrisland",
+        "desarrollo"
+      ],
       "contenido": [
         "# En proceso de desarrollo!",
         "Despues de tantos, años de promesas y eventos cancelados y bugs, en los 5 años que hemos intentado crear algo, por fin llego el momento de construirlo de verdad y eso estamos haciendo el dia de hoy!",
@@ -42,7 +48,14 @@
       "imagen": "https://app.zyrisland.net/assets/backgrounds/thumbnail_1.jpg",
       "titulo": "Jugue **The Forest** por primera vez!",
       "resumen": "El dia de hoy, jugue con ElGanga a The Forest, un juego de supervivencia realista, muy loco y divertido",
-      "etiquetas": ["theforest", "clips", "funny", "gaming", "zyrakatvplus", "zyrakatv"],
+      "etiquetas": [
+        "theforest",
+        "clips",
+        "funny",
+        "gaming",
+        "zyrakatvplus",
+        "zyrakatv"
+      ],
       "contenido": [
         "# NUEVO CONTENIDO!",
         "Acabamos de subir un nuevo video de ZyrAkaTV Plus. Asi que ven y mira las tonteras que hicimos esta vez!",
@@ -65,7 +78,14 @@
       "imagen": "https://app.zyrisland.net/assets/backgrounds/thumbnail_2.jpg",
       "titulo": "Bite by Night, el mejor juego de roblox?",
       "resumen": "El dia de hoy mis amigos me invitaron a jugar Bite By Night! en mi opinion el mejor juego de Fnaf de Roblox",
-      "etiquetas": ["roblox", "clips", "funny", "gaming", "zyrakatvplus", "zyrakatv"],
+      "etiquetas": [
+        "roblox",
+        "clips",
+        "funny",
+        "gaming",
+        "zyrakatvplus",
+        "zyrakatv"
+      ],
       "contenido": [
         "# NUEVO CONTENIDO!",
         "Acabamos de subir un nuevo video de ZyrAkaTV Plus. Asi que ven y mira las tonteras que hicimos esta vez!",
@@ -88,7 +108,15 @@
       "imagen": "https://app.zyrisland.net/assets/backgrounds/thumbnail_3.jpg",
       "titulo": "R.E.P.O. Obtuvo una actualizacion!",
       "resumen": "En este video, invite a mi hermana a probar la actualizacion de R.E.P.O. la **Cosmetic Update** la cual la pasamos increible, tanto que nos morimos de la risa.",
-      "etiquetas": ["REPO", "clips", "funny", "gaming", "zyrakatvplus", "zyrakatv", "hermana"],
+      "etiquetas": [
+        "REPO",
+        "clips",
+        "funny",
+        "gaming",
+        "zyrakatvplus",
+        "zyrakatv",
+        "hermana"
+      ],
       "contenido": [
         "# NUEVO CONTENIDO!",
         "Acabamos de subir un nuevo video de ZyrAkaTV Plus. Asi que ven y mira las tonteras que hicimos esta vez!",
@@ -111,7 +139,14 @@
       "imagen": "https://app.zyrisland.net/assets/backgrounds/thumbnail_4.jpg",
       "titulo": "Esto es lo que pasa, si le das internet a los indigenas.",
       "resumen": "En este video, jugamos yo y los classic a el Rocket League y solo jugamos porque si, solo reimos sacamos clip y ya esta.",
-      "etiquetas": ["rocketleague", "clips", "funny", "gaming", "zyrakatvplus", "zyrakatv"],
+      "etiquetas": [
+        "rocketleague",
+        "clips",
+        "funny",
+        "gaming",
+        "zyrakatvplus",
+        "zyrakatv"
+      ],
       "contenido": [
         "# NUEVO CONTENIDO!",
         "Acabamos de subir un nuevo video de ZyrAkaTV Plus. Asi que ven y mira las tonteras que hicimos esta vez!",
@@ -134,7 +169,14 @@
       "imagen": "https://app.zyrisland.net/assets/backgrounds/thumbnail_5.jpg",
       "titulo": "¡En este juego CONSTRUYES tu propia pista de carreras!",
       "resumen": "En este video, jugamos Brace, un juego de roblox en el que construyes una pista de carreras y luego la juegas mientras tratas de conseguir puntos para llegar a la meta de puntos.",
-      "etiquetas": ["roblox", "clips", "funny", "gaming", "zyrakatvplus", "zyrakatv"],
+      "etiquetas": [
+        "roblox",
+        "clips",
+        "funny",
+        "gaming",
+        "zyrakatvplus",
+        "zyrakatv"
+      ],
       "contenido": [
         "# NUEVO CONTENIDO!",
         "Acabamos de subir un nuevo video de ZyrAkaTV Plus. Asi que ven y mira las tonteras que hicimos esta vez!",
