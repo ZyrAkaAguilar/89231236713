@@ -46,7 +46,42 @@
             <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
         </div>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-nav-drawer">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
     </nav>
+
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+    <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menú móvil" aria-hidden="true">
+        <div class="mobile-nav-links">
+            <a href="https://zyrisland.net" class="mobile-nav-link">
+                <span><i class="fas fa-home"></i> Inicio</span>
+                <i class="fas fa-chevron-right mobile-nav-arrow"></i>
+            </a>
+            <a href="https://zyrisland.net/blog/" class="mobile-nav-link">
+                <span><i class="fas fa-newspaper"></i> Blog</span>
+                <i class="fas fa-chevron-right mobile-nav-arrow"></i>
+            </a>
+            <a href="https://zyrisland.net/soporte/terminos" class="mobile-nav-link">
+                <span><i class="fas fa-file-contract"></i> Terminos</span>
+                <i class="fas fa-chevron-right mobile-nav-arrow"></i>
+            </a>
+            <a href="https://zyrisland.net/soporte/reglas" class="mobile-nav-link active">
+                <span><i class="fas fa-shield-alt"></i> Privacidad</span>
+                <span class="mobile-active-pill">ACTUAL</span>
+            </a>
+        </div>
+        <div class="mobile-nav-footer">
+            <span class="mobile-nav-socials-label">Comunidad Oficial</span>
+            <div class="mobile-nav-socials">
+                <a href="https://www.instagram.com/cynakaagl/" target="_blank" rel="noopener" class="mobile-social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" class="mobile-social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="mobile-social-btn" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </aside>
 
     <header class="legal-header">
         <div class="header-grid-overlay" aria-hidden="true"></div>
@@ -131,29 +166,29 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Identificadores de Juego y Comunidad</strong></td>
-                        <td>Nombre de usuario de Minecraft (IGN), UUID (Premium o generado en modo No-Premium), ID numérico de Discord, nombre de usuario y render de skin/avatar.</td>
-                        <td>Registro en whitelist, postulación o inicio de sesión.</td>
+                        <td data-label="Categoría"><strong>Identificadores de Juego y Comunidad</strong></td>
+                        <td data-label="Datos Específicos">Nombre de usuario de Minecraft (IGN), UUID (Premium o generado en modo No-Premium), ID numérico de Discord, nombre de usuario y render de skin/avatar.</td>
+                        <td data-label="Origen">Registro en whitelist, postulación o inicio de sesión.</td>
                     </tr>
                     <tr>
-                        <td><strong>Telemetría de Red y Seguridad</strong></td>
-                        <td>Dirección IP de conexión, marca temporal de acceso, versión del cliente/modpack, registros de chat, comandos ejecutados y alertas técnicas anti-cheat.</td>
-                        <td>Automático al conectarse a los servidores de juego o web.</td>
+                        <td data-label="Categoría"><strong>Telemetría de Red y Seguridad</strong></td>
+                        <td data-label="Datos Específicos">Dirección IP de conexión, marca temporal de acceso, versión del cliente/modpack, registros de chat, comandos ejecutados y alertas técnicas anti-cheat.</td>
+                        <td data-label="Origen">Automático al conectarse a los servidores de juego o web.</td>
                     </tr>
                     <tr>
-                        <td><strong>Datos de Sesión Web</strong></td>
-                        <td>Cookies técnicas de autenticación y preferencias de interfaz en <code>app.zyrisland.net</code>.</td>
-                        <td>Navegador del usuario durante el uso del portal.</td>
+                        <td data-label="Categoría"><strong>Datos de Sesión Web</strong></td>
+                        <td data-label="Datos Específicos">Cookies técnicas de autenticación y preferencias de interfaz en <code>app.zyrisland.net</code>.</td>
+                        <td data-label="Origen">Navegador del usuario durante el uso del portal.</td>
                     </tr>
                     <tr>
-                        <td><strong>Soporte y Postulaciones</strong></td>
-                        <td>Respuestas en formularios de admisión, evidencia en video/capturas en reportes y registros de tickets de soporte.</td>
-                        <td>Proporcionados voluntariamente por el usuario.</td>
+                        <td data-label="Categoría"><strong>Soporte y Postulaciones</strong></td>
+                        <td data-label="Datos Específicos">Respuestas en formularios de admisión, evidencia en video/capturas en reportes y registros de tickets de soporte.</td>
+                        <td data-label="Origen">Proporcionados voluntariamente por el usuario.</td>
                     </tr>
                     <tr>
-                        <td><strong>Aportes y Donaciones</strong></td>
-                        <td>Identificador de transacción, usuario asociado y monto de aporte voluntario (nunca accedemos a datos bancarios ni tarjetas).</td>
-                        <td>Pasarelas externas autorizadas (ej. PayPal).</td>
+                        <td data-label="Categoría"><strong>Aportes y Donaciones</strong></td>
+                        <td data-label="Datos Específicos">Identificador de transacción, usuario asociado y monto de aporte voluntario (nunca accedemos a datos bancarios ni tarjetas).</td>
+                        <td data-label="Origen">Pasarelas externas autorizadas (ej. PayPal).</td>
                     </tr>
                 </tbody>
             </table>
@@ -281,6 +316,49 @@
 
     <script>
         /* =========================================================
+           0. MENÚ HAMBURGUESA MÓVIL & DRAWER GLASSMORPHISM
+           ========================================================= */
+        const navToggle = document.getElementById("nav-toggle");
+        const mobileDrawer = document.getElementById("mobile-nav-drawer");
+        const mobileBackdrop = document.getElementById("mobile-nav-backdrop");
+
+        function setMobileMenuOpen(open) {
+            if (!navToggle || !mobileDrawer || !mobileBackdrop) return;
+            navToggle.classList.toggle("is-open", open);
+            navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+            navToggle.setAttribute("aria-label", open ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+            mobileDrawer.classList.toggle("is-open", open);
+            mobileDrawer.setAttribute("aria-hidden", open ? "false" : "true");
+            mobileBackdrop.classList.toggle("is-open", open);
+            document.body.style.overflow = open ? "hidden" : "";
+        }
+
+        if (navToggle && mobileDrawer && mobileBackdrop) {
+            navToggle.addEventListener("click", () => {
+                const isOpen = navToggle.classList.contains("is-open");
+                setMobileMenuOpen(!isOpen);
+            });
+
+            mobileBackdrop.addEventListener("click", () => setMobileMenuOpen(false));
+
+            mobileDrawer.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => setMobileMenuOpen(false));
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && navToggle.classList.contains("is-open")) {
+                    setMobileMenuOpen(false);
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 960 && navToggle.classList.contains("is-open")) {
+                    setMobileMenuOpen(false);
+                }
+            }, { passive: true });
+        }
+
+        /* =========================================================
            1. BARRA DE PROGRESO DE LECTURA + BOTÓN VOLVER ARRIBA
            ========================================================= */
         const scrollProgressBar = document.getElementById("scroll-progress-bar");
@@ -314,7 +392,7 @@
             window.addEventListener("resize", () => {
                 width = canvas.width = canvas.offsetWidth;
                 height = canvas.height = canvas.offsetHeight;
-            });
+            }, { passive: true });
 
             window.addEventListener("mousemove", (e) => {
                 const rect = canvas.getBoundingClientRect();
@@ -322,7 +400,7 @@
                 mouse.y = e.clientY - rect.top;
             }, { passive: true });
 
-            const count = Math.min(36, Math.floor(width / 34));
+            const count = Math.min(36, Math.max(14, Math.floor(width / 34)));
             const particles = Array.from({ length: count }, () => ({
                 x: Math.random() * width,
                 y: Math.random() * height,
@@ -421,7 +499,7 @@
         });
 
         function updateActiveToc() {
-            const offset = 190;
+            const offset = window.innerWidth <= 960 ? 150 : 190;
             let activeId = sectionHeadings[0]?.id || "";
             for (const h2 of sectionHeadings) {
                 if (h2.getBoundingClientRect().top <= offset) {
@@ -526,7 +604,7 @@
 
         function filterLegalContent(rawQuery) {
             const q = rawQuery.trim().toLowerCase();
-            clearBtn.style.display = q ? "block" : "none";
+            clearBtn.style.display = q ? "flex" : "none";
 
             if (!q) {
                 statusEl.textContent = "";

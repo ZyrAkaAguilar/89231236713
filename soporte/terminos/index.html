@@ -2,16 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Términos y Condiciones | ZyrAkaTV™</title>
     <meta name="description" content="Términos, condiciones y normativa oficial de convivencia, seguridad técnica y juego limpio para los servidores de ZyrIsland, SMP Island y eventos de ZyrAkaTV™.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://zyrisland.net/soporte/terminos">
-    <meta name="theme-color" content="#cc1224">
+    <meta name="theme-color" content="#070707">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -27,26 +27,80 @@
         <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
     </div>
 
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navegación principal">
         <div class="nav-left">
             <a href="https://zyrisland.net" class="nav-link">Inicio</a>
             <a href="https://zyrisland.net/blog/" class="nav-link">Blog</a>
-            <a href="https://zyrisland.net/soporte/terminos" class="nav-link active">Terminos</a>
+            <a href="https://zyrisland.net/soporte/terminos" class="nav-link active" aria-current="page">Terminos</a>
             <a href="https://zyrisland.net/soporte/reglas" class="nav-link">Privacidad</a>
         </div>
-        <a href="https://zyrisland.net" class="nav-center">
+
+        <a href="https://zyrisland.net" class="nav-center" aria-label="ZyrAkaTV Inicio">
             <img src="https://app.zyrisland.net/assets/icons/zyrakatv-ico.png" alt="ZyrAkaTV Logo" class="brand-logo">
             <div class="brand-text">
                 <span class="brand-title">ZYRAKA<sup class="trademark">™</sup></span>
                 <span class="brand-subtitle">TV</span>
             </div>
         </a>
+
         <div class="nav-right">
             <a href="https://www.instagram.com/cynakaagl/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
         </div>
+
+        <div class="nav-mobile-actions">
+            <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" class="mobile-quick-discord" aria-label="Unirse a Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            <button type="button" id="mobile-menu-toggle" class="hamburger-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-nav-drawer">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
     </nav>
+
+    <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+    <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Menú móvil" aria-hidden="true">
+        <div class="mobile-drawer-inner">
+            <div class="mobile-drawer-label">NAVEGACIÓN</div>
+            <div class="mobile-drawer-links">
+                <a href="https://zyrisland.net" class="mobile-drawer-link">
+                    <span class="mobile-link-left"><i class="fas fa-home"></i> Inicio</span>
+                    <i class="fas fa-chevron-right mobile-link-arrow"></i>
+                </a>
+                <a href="https://zyrisland.net/blog/" class="mobile-drawer-link">
+                    <span class="mobile-link-left"><i class="fas fa-newspaper"></i> Blog</span>
+                    <i class="fas fa-chevron-right mobile-link-arrow"></i>
+                </a>
+                <a href="https://zyrisland.net/soporte/terminos" class="mobile-drawer-link active" aria-current="page">
+                    <span class="mobile-link-left"><i class="fas fa-file-contract"></i> Términos y Condiciones</span>
+                    <span class="mobile-active-pill">ACTUAL</span>
+                </a>
+                <a href="https://zyrisland.net/soporte/reglas" class="mobile-drawer-link">
+                    <span class="mobile-link-left"><i class="fas fa-shield-alt"></i> Privacidad</span>
+                    <i class="fas fa-chevron-right mobile-link-arrow"></i>
+                </a>
+            </div>
+
+            <a href="https://app.zyrisland.net" target="_blank" rel="noopener" class="mobile-drawer-cta btn-glow-sweep">
+                <i class="fas fa-rocket"></i>
+                <span>Portal de Eventos</span>
+            </a>
+
+            <div class="mobile-drawer-footer">
+                <span class="mobile-drawer-label">COMUNIDAD OFICIAL</span>
+                <div class="mobile-drawer-socials">
+                    <a href="https://www.instagram.com/cynakaagl/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://discord.gg/DVBdqXgsGu" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://paypal.me/zyrakaaguilar" target="_blank" rel="noopener" aria-label="PayPal"><i class="fab fa-paypal"></i></a>
+                </div>
+            </div>
+        </div>
+    </aside>
 
     <header class="legal-header">
         <div class="header-grid-overlay" aria-hidden="true"></div>
@@ -335,10 +389,10 @@
             <div class="footer-links-grid">
                 <div class="footer-column">
                     <h4>STUDIO</h4>
-                    <a href="https://zyrisland.net/#estudio" target="_blank">About</a>
-                    <a href="https://zyrisland.net/#proyectos" target="_blank">Portfolio</a>
-                    <a href="https://zyrisland.net/blog/" target="_blank">Blog</a>
-                    <a href="https://app.zyrisland.net" target="_blank">Events Portal</a>
+                    <a href="https://zyrisland.net/#estudio" target="_blank" rel="noopener">About</a>
+                    <a href="https://zyrisland.net/#proyectos" target="_blank" rel="noopener">Portfolio</a>
+                    <a href="https://zyrisland.net/blog/" target="_blank" rel="noopener">Blog</a>
+                    <a href="https://app.zyrisland.net" target="_blank" rel="noopener">Events Portal</a>
                 </div>
                 <div class="footer-column">
                     <h4>COMMUNITY</h4>
@@ -346,10 +400,10 @@
                     <a href="https://www.youtube.com/@cynakaagl" target="_blank" rel="noopener">YouTube Oficial</a>
                     <a href="https://www.instagram.com/cynakaagl/" target="_blank" rel="noopener">Instagram</a>
                 </div>
-                <div class="footer-column">
+                <div class="footer-column footer-column-legal">
                     <h4>LEGAL</h4>
-                    <a href="https://zyrisland.net/soporte/reglas" target="_blank">Privacy Policy</a>
-                    <a href="https://zyrisland.net/soporte/terminos" target="_blank">Terms & Conditions</a>
+                    <a href="https://zyrisland.net/soporte/reglas" target="_blank" rel="noopener">Privacy Policy</a>
+                    <a href="https://zyrisland.net/soporte/terminos" target="_blank" rel="noopener">Terms & Conditions</a>
                 </div>
             </div>
         </div>
@@ -366,6 +420,51 @@
     </footer>
 
     <script>
+        /* =========================================================
+           0. MENÚ HAMBURGUESA Y DRAWER MÓVIL GLASSMORPHISM
+           ========================================================= */
+        (function initMobileDrawer() {
+            const menuToggle = document.getElementById("mobile-menu-toggle");
+            const drawer = document.getElementById("mobile-nav-drawer");
+            const backdrop = document.getElementById("mobile-nav-backdrop");
+            if (!menuToggle || !drawer || !backdrop) return;
+
+            function setMenuState(isOpen) {
+                menuToggle.classList.toggle("is-open", isOpen);
+                drawer.classList.toggle("is-open", isOpen);
+                backdrop.classList.toggle("is-open", isOpen);
+                document.body.classList.toggle("menu-open", isOpen);
+                menuToggle.setAttribute("aria-expanded", String(isOpen));
+                menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+                drawer.setAttribute("aria-hidden", String(!isOpen));
+                backdrop.setAttribute("aria-hidden", String(!isOpen));
+            }
+
+            menuToggle.addEventListener("click", () => {
+                const currentlyOpen = drawer.classList.contains("is-open");
+                setMenuState(!currentlyOpen);
+            });
+
+            backdrop.addEventListener("click", () => setMenuState(false));
+
+            drawer.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => setMenuState(false));
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+                    setMenuState(false);
+                    menuToggle.focus();
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 960 && drawer.classList.contains("is-open")) {
+                    setMenuState(false);
+                }
+            }, { passive: true });
+        })();
+
         /* =========================================================
            1. BARRA DE PROGRESO DE LECTURA + BOTÓN VOLVER ARRIBA
            ========================================================= */
@@ -400,7 +499,7 @@
             window.addEventListener("resize", () => {
                 width = canvas.width = canvas.offsetWidth;
                 height = canvas.height = canvas.offsetHeight;
-            });
+            }, { passive: true });
 
             window.addEventListener("mousemove", (e) => {
                 const rect = canvas.getBoundingClientRect();
@@ -408,7 +507,8 @@
                 mouse.y = e.clientY - rect.top;
             }, { passive: true });
 
-            const count = Math.min(36, Math.floor(width / 34));
+            const isMobile = window.innerWidth <= 768;
+            const count = isMobile ? Math.min(18, Math.floor(width / 26)) : Math.min(36, Math.floor(width / 34));
             const particles = Array.from({ length: count }, () => ({
                 x: Math.random() * width,
                 y: Math.random() * height,
@@ -459,7 +559,7 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+        }, { threshold: 0.06, rootMargin: "0px 0px -24px 0px" });
 
         document.querySelectorAll(".legal-content h2, .legal-content h3, .legal-content > ul, .legal-content > p").forEach((el) => {
             el.classList.add("reveal-item");
@@ -469,11 +569,11 @@
         document.querySelectorAll(".reveal-item").forEach((el) => revealObserver.observe(el));
 
         document.querySelectorAll(".spotlight-surface").forEach((surface) => {
-            surface.addEventListener("mousemove", (e) => {
+            surface.addEventListener("pointermove", (e) => {
                 const rect = surface.getBoundingClientRect();
                 surface.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
                 surface.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
-            });
+            }, { passive: true });
         });
 
         /* =========================================================
@@ -507,7 +607,7 @@
         });
 
         function updateActiveToc() {
-            const offset = 190;
+            const offset = window.innerWidth <= 960 ? 150 : 190;
             let activeId = sectionHeadings[0]?.id || "";
             for (const h2 of sectionHeadings) {
                 if (h2.getBoundingClientRect().top <= offset) {
@@ -530,7 +630,6 @@
         const statusEl = document.getElementById("legal-search-status");
         const emptyStateEl = document.getElementById("legal-empty-state");
 
-        // Estructurar bloques lógicos (Sección -> Artículos -> Listas/Párrafos) sin modificar el DOM visual base
         const sections = [];
         let currentSection = null;
         let currentArticle = null;
@@ -552,7 +651,7 @@
 
         function filterLegalContent(rawQuery) {
             const q = rawQuery.trim().toLowerCase();
-            clearBtn.style.display = q ? "block" : "none";
+            clearBtn.style.display = q ? "flex" : "none";
 
             if (!q) {
                 statusEl.textContent = "";
