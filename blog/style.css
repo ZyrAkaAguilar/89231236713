@@ -37,9 +37,6 @@ body.menu-open {
     color: var(--accent-red);
 }
 
-/* =========================================================
-   KEYFRAMES DE ANIMACIÓN
-   ========================================================= */
 @keyframes heroKenBurns {
     0% { transform: scale(1) translate3d(0, 0, 0); }
     50% { transform: scale(1.06) translate3d(-1%, -1%, 0); }
@@ -95,9 +92,6 @@ body.menu-open {
     100% { transform: translateX(240%) skewX(-18deg); }
 }
 
-/* =========================================================
-   BARRAS DE PROGRESO SUPERIORES
-   ========================================================= */
 .scroll-progress-track {
     position: fixed;
     top: 80px;
@@ -122,9 +116,6 @@ body.menu-open {
     transition: width 0.08s linear;
 }
 
-/* =========================================================
-   SISTEMA DE REVELADO AL HACER SCROLL
-   ========================================================= */
 .hero-anim {
     opacity: 0;
     animation: heroStaggerIn 0.82s cubic-bezier(0.16, 1, 0.3, 1) var(--hero-delay, 0s) forwards;
@@ -160,9 +151,6 @@ body.menu-open {
     filter: drop-shadow(0 0 18px rgba(204, 18, 36, 0.35));
 }
 
-/* =========================================================
-   SPOTLIGHT DINÁMICO + BOTONES
-   ========================================================= */
 .spotlight-surface {
     position: relative;
     overflow: hidden;
@@ -266,9 +254,6 @@ body.menu-open {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
 }
 
-/* =========================================================
-   NAVBAR DESKTOP + MENÚ TÁCTIL MÓVIL
-   ========================================================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -327,7 +312,6 @@ body.menu-open {
     transform: translateY(-3px);
 }
 
-/* Botón Hamburguesa (Oculto en PC, visible en móvil) */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -536,9 +520,6 @@ body.menu-open {
     text-decoration: none;
 }
 
-/* =========================================================
-   HEADER & BUSCADOR DE BLOGS CON FONDO RENDER LUMINOSO
-   ========================================================= */
 .blog-header {
     position: relative;
     margin-top: 80px;
@@ -754,9 +735,6 @@ body.menu-open {
     box-shadow: 0 6px 22px rgba(204, 18, 36, 0.44);
 }
 
-/* =========================================================
-   AMBIENTACIÓN DE FONDO EN EL CONTENEDOR PRINCIPAL
-   ========================================================= */
 .blogs-main-wrapper,
 .post-main-shell {
     position: relative;
@@ -829,9 +807,6 @@ body.menu-open {
     letter-spacing: 1px;
 }
 
-/* =========================================================
-   ARTÍCULO DESTACADO (FEATURED BANNER)
-   ========================================================= */
 .featured-blog {
     position: relative;
     z-index: 2;
@@ -982,9 +957,6 @@ body.menu-open {
     transform: translateX(3px);
 }
 
-/* =========================================================
-   CUADRÍCULA DE TARJETAS DE BLOG
-   ========================================================= */
 .blogs-grid {
     position: relative;
     z-index: 2;
@@ -1150,9 +1122,6 @@ body.menu-open {
     margin: 0;
 }
 
-/* =========================================================
-   GALERÍA VISUAL EDITORIAL (ESPACIOS DE IMÁGENES EN BLOG)
-   ========================================================= */
 .visual-gallery-section {
     position: relative;
     z-index: 2;
@@ -1272,9 +1241,6 @@ body.menu-open {
     line-height: 1.4;
 }
 
-/* =========================================================
-   BANNER CTA WIDESCREEN CON IMAGEN DE FONDO
-   ========================================================= */
 .blog-cta-banner {
     position: relative;
     z-index: 2;
@@ -1351,9 +1317,6 @@ body.menu-open {
     flex-wrap: wrap;
 }
 
-/* =========================================================
-   BOTÓN FLOTANTE VOLVER ARRIBA
-   ========================================================= */
 .back-to-top-btn {
     position: fixed;
     bottom: 26px;
@@ -1390,9 +1353,6 @@ body.menu-open {
     transform: translateY(-3px);
 }
 
-/* =========================================================
-   PÁGINA DE ARTÍCULO INDIVIDUAL (post.html)
-   ========================================================= */
 .post-hero {
     position: relative;
     margin-top: 80px;
@@ -1609,9 +1569,6 @@ body.menu-open {
     pointer-events: none;
 }
 
-/* =========================================================
-   ESTILOS DEL PARSER ENRIQUECIDO (#, **, *, etc.)
-   ========================================================= */
 .article-body {
     position: relative;
     z-index: 2;
@@ -1814,9 +1771,6 @@ body.menu-open {
     text-transform: uppercase;
 }
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
 .site-footer {
     position: relative;
     z-index: 2;
@@ -1886,9 +1840,6 @@ body.menu-open {
 .footer-socials a { color: #888; font-size: 1.2rem; transition: color 0.3s; }
 .footer-socials a:hover { color: #fff; }
 
-/* =========================================================
-   ACCESIBILIDAD
-   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1902,16 +1853,12 @@ body.menu-open {
     }
 }
 
-/* =========================================================
-   UI OPTIMIZADA PARA TELÉFONOS Y TABLETS (<= 960px & <= 540px)
-   ========================================================= */
 @media screen and (max-width: 960px) {
     .scroll-progress-track,
     .reading-progress-bar {
         top: 68px;
     }
 
-    /* Navbar compacta de una sola fila (68px) en móvil */
     .navbar {
         height: 68px;
         padding: 0 18px;
@@ -1941,7 +1888,6 @@ body.menu-open {
         background-attachment: scroll;
     }
 
-    /* Header del portal y post adaptados a móvil */
     .blog-header,
     .post-hero {
         margin-top: 68px;
@@ -2026,7 +1972,6 @@ body.menu-open {
         font-size: 1.18rem;
     }
 
-    /* Galería visual editorial en móvil */
     .visual-gallery-section {
         margin-top: 56px;
         padding-top: 44px;
@@ -2042,7 +1987,6 @@ body.menu-open {
         padding: 44px 20px;
     }
 
-    /* Artículo individual en móvil */
     .post-lead {
         font-size: 1rem;
     }
@@ -2084,7 +2028,6 @@ body.menu-open {
         height: 42px;
     }
 
-    /* Footer móvil estructurado */
     .site-footer {
         padding: 44px 20px calc(28px + env(safe-area-inset-bottom)) 20px;
     }
