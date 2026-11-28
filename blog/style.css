@@ -371,8 +371,8 @@ body {
     position: absolute;
     inset: -2%;
     background-image:
-        url('https://app.zyrisland.net/assets/backgrounds/render_002.png'),
-        url('https://app.zyrisland.net/assets/backgrounds/render_003.png');
+        url('https://app.zyrisland.net/assets/backgrounds/render_006.png'),
+        url('https://app.zyrisland.net/assets/backgrounds/render_008.png');
     background-size: cover;
     background-position: center;
     filter: brightness(0.62) saturate(1.15);
