@@ -1100,7 +1100,7 @@ body {
 .cta-bg-image {
     position: absolute;
     inset: 0;
-    background-image: url('https://app.zyrisland.net/assets/backgrounds/render_003.png');
+    background-image: url('https://app.zyrisland.net/assets/backgrounds/render_006.png');
     background-size: cover;
     background-position: center;
     opacity: 0.34;
@@ -1111,7 +1111,7 @@ body {
 }
 
 .cta-bg-image.post-cta-bg {
-    background-image: url('https://app.zyrisland.net/assets/backgrounds/render_002.png');
+    background-image: url('https://app.zyrisland.net/assets/backgrounds/render_008.png');
 }
 
 .blog-cta-banner:hover .cta-bg-image {
